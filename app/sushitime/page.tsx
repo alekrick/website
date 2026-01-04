@@ -230,14 +230,14 @@ export default function SushiTime() {
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight">The problem</h2>
               <ul className="space-y-3 text-gray-700 text-sm md:text-base leading-relaxed list-disc list-inside">
                 <li>Long wait in sushi places;</li>
-                <li>Low clarity on the ingredients' quantities for the day, leading to waste.</li>
+                <li>Low clarity on the ingredients&apos; quantities for the day, leading to waste.</li>
               </ul>
             </div>
             {/* The Goal */}
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight">The goal</h2>
               <ul className="space-y-3 text-gray-700 text-sm md:text-base leading-relaxed list-disc list-inside">
-                <li>Improve sushi lovers' experiences in their favorite sushi places;</li>
+                <li>Improve sushi lovers&apos; experiences in their favorite sushi places;</li>
                 <li>Decrease the amount of ingredients gone to waste;</li>
                 <li>Less time waiting, more time having fun.</li>
               </ul>
