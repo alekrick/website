@@ -417,8 +417,8 @@ export default function Home() {
                   <Image
                     src="/images/image3.png"
                     alt="Product Management"
-                    width={1280}
-                    height={720}
+                    width={5000}
+                    height={5000}
                     className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
                   />
                 </div>
@@ -441,8 +441,8 @@ export default function Home() {
                   <Image
                     src="/images/image4.png"
                     alt="SushiTime"
-                    width={1280}
-                    height={720}
+                    width={5000}
+                    height={5000}
                     className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
                   />
                 </div>
@@ -465,8 +465,8 @@ export default function Home() {
                   <Image
                     src="/images/image5.png"
                     alt="Community"
-                    width={1280}
-                    height={720}
+                    width={5000}
+                    height={5000}
                     className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
                   />
                 </div>
@@ -489,8 +489,8 @@ export default function Home() {
                   <Image
                     src="/images/image6.png"
                     alt="Graphic Design"
-                    width={1280}
-                    height={720}
+                    width={5000}
+                    height={5000}
                     className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
                   />
                 </div>

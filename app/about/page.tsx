@@ -91,8 +91,8 @@ export default function About() {
                 <Image
                   src="/images/image26.png"
                   alt="person holding a camera by the parthenon in athens"
-                  width={1280}
-                  height={720}
+                  width={5000}
+                  height={5000}
                   className="object-contain w-full h-auto"
                 />
               </div>

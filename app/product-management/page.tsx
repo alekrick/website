@@ -170,8 +170,8 @@ export default function ProductManagement() {
                 <Image
                   src="/images/image7.png"
                   alt="Kidjo TV"
-                  width={1280}
-                  height={720}
+                  width={5000}
+                  height={5000}
                   className="object-contain w-full h-auto transition-transform duration-300 group-hover:scale-105"
                 />
               </a>
@@ -180,8 +180,8 @@ export default function ProductManagement() {
               <Image
                 src="/images/image8.png"
                 alt="Product portfolio"
-                width={1280}
-                height={720}
+                width={5000}
+                height={5000}
                 className="object-contain w-full h-auto transition-transform duration-300 group-hover:scale-105"
               />
             </div>
@@ -223,8 +223,8 @@ export default function ProductManagement() {
             <Image
               src="/images/image9.png"
               alt="Product Strategy"
-              width={1280}
-              height={720}
+              width={5000}
+              height={5000}
               className="object-contain w-full h-auto transition-transform duration-300 group-hover:scale-105"
             />
           </div>
@@ -262,8 +262,8 @@ export default function ProductManagement() {
                 <Image
                   src="/images/image10.png"
                   alt="Planning poker"
-                  width={1280}
-                  height={720}
+                  width={5000}
+                  height={5000}
                   className="object-contain w-full h-auto transition-transform duration-300 group-hover:scale-105"
                 />
               </div>
@@ -277,8 +277,8 @@ export default function ProductManagement() {
                 <Image
                   src="/images/image11.png"
                   alt="Sprint burndown"
-                  width={1280}
-                  height={720}
+                  width={5000}
+                  height={5000}
                   className="object-contain w-full h-auto transition-transform duration-300 group-hover:scale-105"
                 />
               </div>
@@ -291,8 +291,8 @@ export default function ProductManagement() {
                 <Image
                   src="/images/image12.png"
                   alt="Reviews and Retrospectives"
-                  width={1280}
-                  height={720}
+                  width={5000}
+                  height={5000}
                   className="object-contain w-full h-auto transition-transform duration-300 group-hover:scale-105"
                 />
               </div>
@@ -363,8 +363,8 @@ export default function ProductManagement() {
               <Image
                 src="/images/image13.png"
                 alt="UX/UI Design"
-                width={1280}
-                height={720}
+                width={5000}
+                height={5000}
                 className="object-contain w-full h-auto transition-transform duration-300 group-hover:scale-105"
               />
             </div>
@@ -372,8 +372,8 @@ export default function ProductManagement() {
               <Image
                 src="/images/image14.png"
                 alt="UX/UI Design"
-                width={1280}
-                height={720}
+                width={5000}
+                height={5000}
                 className="object-contain w-full h-auto transition-transform duration-300 group-hover:scale-105"
               />
             </div>
@@ -410,8 +410,8 @@ export default function ProductManagement() {
                 <Image
                   src="/images/image15.png"
                   alt="Data dashboard spreadsheet"
-                  width={1280}
-                  height={720}
+                  width={5000}
+                  height={5000}
                   className="object-contain w-full h-auto transition-transform duration-300 group-hover:scale-105"
                 />
               </div>
@@ -437,8 +437,8 @@ export default function ProductManagement() {
                 <Image
                   src="/images/image16.png"
                   alt="Data dashboard spreadsheet"
-                  width={1280}
-                  height={720}
+                  width={5000}
+                  height={5000}
                   className="object-contain w-full h-auto transition-transform duration-300 group-hover:scale-105"
                 />
               </div>
@@ -493,8 +493,8 @@ export default function ProductManagement() {
             <Image
               src="/images/image17.png"
               alt="Release Management"
-              width={1280}
-              height={720}
+              width={5000}
+              height={5000}
               className="object-contain w-full h-auto transition-transform duration-300 group-hover:scale-105"
             />
           </div>
@@ -532,8 +532,8 @@ export default function ProductManagement() {
               <Image
                 src="/images/image18.png"
                 alt="Tech meeting"
-                width={1280}
-                height={720}
+                width={5000}
+                height={5000}
                 className="object-contain w-full h-auto transition-transform duration-300 group-hover:scale-105"
               />
             </div>
@@ -541,8 +541,8 @@ export default function ProductManagement() {
               <Image
                 src="/images/image19.png"
                 alt="Tech meeting"
-                width={1280}
-                height={720}
+                width={5000}
+                height={5000}
                 className="object-contain w-full h-auto transition-transform duration-300 group-hover:scale-105"
               />
             </div>
@@ -587,8 +587,8 @@ export default function ProductManagement() {
               <Image
                 src="/images/image20.png"
                 alt="Team management"
-                width={1280}
-                height={720}
+                width={5000}
+                height={5000}
                 className="object-contain w-full h-auto transition-transform duration-300 group-hover:scale-105"
               />
             </div>
@@ -596,8 +596,8 @@ export default function ProductManagement() {
               <Image
                 src="/images/image21.png"
                 alt="Team management"
-                width={1280}
-                height={720}
+                width={5000}
+                height={5000}
                 className="object-contain w-full h-auto transition-transform duration-300 group-hover:scale-105"
               />
             </div>
@@ -607,8 +607,8 @@ export default function ProductManagement() {
               <Image
                 src="/images/image22.png"
                 alt="Team engagement"
-                width={1280}
-                height={720}
+                width={5000}
+                height={5000}
                 className="object-contain w-full h-auto transition-transform duration-300 group-hover:scale-105"
               />
             </div>
@@ -616,8 +616,8 @@ export default function ProductManagement() {
               <Image
                 src="/images/image23.png"
                 alt="Team engagement"
-                width={1280}
-                height={720}
+                width={5000}
+                height={5000}
                 className="object-contain w-full h-auto transition-transform duration-300 group-hover:scale-105"
               />
             </div>
@@ -977,8 +977,8 @@ export default function ProductManagement() {
               <Image
                 src="/images/image24.png"
                 alt="Outcomes"
-                width={1280}
-                height={720}
+                width={5000}
+                height={5000}
                 className="object-contain w-full h-auto transition-transform duration-300 group-hover:scale-105"
               />
             </div>
@@ -1014,9 +1014,9 @@ export default function ProductManagement() {
             <Image
               src="/images/image25.png"
               alt="Let's build something users love"
-              width={1280}
-              height={720}
-              className="object-contain w-full h-auto transition-transform duration-300 group-hover:scale-105"
+              width={5000}
+              height={5000}
+              className="object-contain w-full h-auto max-w-2xl mx-auto transition-transform duration-300 group-hover:scale-105"
             />
           </div>
         </div>
