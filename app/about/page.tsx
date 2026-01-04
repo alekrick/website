@@ -29,7 +29,7 @@ export default function About() {
       <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200 shadow-sm">
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
-            <Link href="/home" className="flex items-center">
+            <Link href="/homepage" className="flex items-center">
               <Image
                 src="/images/image1.png"
                 alt="Alessandra Krick Logo"
@@ -42,19 +42,19 @@ export default function About() {
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-6">
               <Link
-                href="/home"
+                href="/homepage"
                 className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200"
               >
                 Home
               </Link>
               <Link
-                href="/about-me"
+                href="/about"
                 className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium"
               >
                 About
               </Link>
               <Link
-                href="/product"
+                href="/product-management"
                 className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200"
               >
                 Product Management
@@ -108,21 +108,21 @@ export default function About() {
             <div className="md:hidden mt-4 pb-4 border-t border-gray-200">
               <div className="flex flex-col gap-4 pt-4">
                 <Link
-                  href="/home"
+                  href="/homepage"
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200 py-2"
                 >
                   Home
                 </Link>
                 <Link
-                  href="/about-me"
+                  href="/about"
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium py-2"
                 >
                   About
                 </Link>
                 <Link
-                  href="/product"
+                  href="/product-management"
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200 py-2"
                 >
@@ -233,7 +233,7 @@ export default function About() {
             <p className="text-base md:text-lg indent-8">
               Want to know more about my Product Manager experience?{" "}
               <Link
-                href="/product"
+                href="/product-management"
                 className="text-blue-600 hover:text-blue-800 underline"
               >
                 You can find my Product Manager Portfolio by clicking here

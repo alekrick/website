@@ -161,7 +161,7 @@ export default function Home() {
       >
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
-            <Link href="/home" className="flex items-center">
+            <Link href="/homepage" className="flex items-center">
               <Image
                 src="/images/image1.png"
                 alt="Alessandra Krick Logo"
@@ -174,19 +174,19 @@ export default function Home() {
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-6">
               <Link
-                href="/home"
+                href="/homepage"
                 className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium"
               >
                 Home
               </Link>
               <Link
-                href="/about-me"
+                href="/about"
                 className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200"
               >
                 About
               </Link>
               <Link
-                href="/product"
+                href="/product-management"
                 className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200"
               >
                 Product Management
@@ -240,21 +240,21 @@ export default function Home() {
             <div className="md:hidden mt-4 pb-4 border-t border-gray-200">
               <div className="flex flex-col gap-4 pt-4">
                 <Link
-                  href="/home"
+                  href="/homepage"
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium py-2"
                 >
                   Home
                 </Link>
                 <Link
-                  href="/about-me"
+                  href="/about"
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200 py-2"
                 >
                   About
                 </Link>
                 <Link
-                  href="/product"
+                  href="/product-management"
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200 py-2"
                 >
@@ -514,7 +514,7 @@ export default function Home() {
               transition={{ duration: 0.5 }}
               className="group"
             >
-              <Link href="/product" className="block">
+              <Link href="/product-management" className="block">
                 <div className="relative w-full h-64 rounded-lg overflow-hidden shadow-lg bg-gray-100 mb-4">
                   <motion.div
                     initial={{ opacity: 0 }}
