@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { useState } from "react";
 
 // Reusable Section component with scroll-triggered animation
 const Section = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => {
@@ -20,8 +21,10 @@ const Section = ({ children, className = "" }: { children: React.ReactNode; clas
 };
 
 export default function About() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   return (
-    <main className="min-h-screen bg-white scroll-smooth">
+    <main className="min-h-screen bg-white scroll-smooth overflow-x-hidden">
       {/* Header */}
       <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200 shadow-sm">
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
@@ -35,7 +38,9 @@ export default function About() {
                 className="h-8 w-auto"
               />
             </Link>
-            <div className="flex items-center gap-6">
+            
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center gap-6">
               <Link
                 href="/"
                 className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200"
@@ -54,8 +59,99 @@ export default function About() {
               >
                 Product Management
               </Link>
+              <a
+                href="https://www.alessandrakrick.com/graphic-design"
+                className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200"
+              >
+                Graphic Design
+              </a>
+              <a
+                href="https://www.alessandrakrick.com/sushitime"
+                className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200"
+              >
+                SushiTime
+              </a>
+              <a
+                href="https://www.alessandrakrick.com/community"
+                className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200"
+              >
+                Community
+              </a>
             </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="md:hidden p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-gray-100 transition-colors duration-200"
+              aria-label="Toggle menu"
+            >
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                {isMobileMenuOpen ? (
+                  <path d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path d="M4 6h16M4 12h16M4 18h16" />
+                )}
+              </svg>
+            </button>
           </div>
+
+          {/* Mobile Menu */}
+          {isMobileMenuOpen && (
+            <div className="md:hidden mt-4 pb-4 border-t border-gray-200">
+              <div className="flex flex-col gap-4 pt-4">
+                <Link
+                  href="/"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200 py-2"
+                >
+                  Home
+                </Link>
+                <Link
+                  href="/about"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium py-2"
+                >
+                  About
+                </Link>
+                <Link
+                  href="/product-management"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200 py-2"
+                >
+                  Product Management
+                </Link>
+                <a
+                  href="https://www.alessandrakrick.com/graphic-design"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200 py-2"
+                >
+                  Graphic Design
+                </a>
+                <a
+                  href="https://www.alessandrakrick.com/sushitime"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200 py-2"
+                >
+                  SushiTime
+                </a>
+                <a
+                  href="https://www.alessandrakrick.com/community"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200 py-2"
+                >
+                  Community
+                </a>
+              </div>
+            </div>
+          )}
         </nav>
       </header>
 
@@ -88,13 +184,20 @@ export default function About() {
             {/* Image on Right */}
             <div className="flex-shrink-0 w-full md:w-auto max-w-sm md:ml-4">
               <div className="relative w-full h-auto rounded-lg overflow-hidden shadow-lg">
-                <Image
-                  src="/images/image26.png"
-                  alt="person holding a camera by the parthenon in athens"
-                  width={5000}
-                  height={5000}
-                  className="object-contain w-full h-auto"
-                />
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                >
+                  <Image
+                    src="/images/image26.png"
+                    alt="person holding a camera by the parthenon in athens"
+                    width={5000}
+                    height={5000}
+                    className="object-contain w-full h-auto"
+                  />
+                </motion.div>
               </div>
             </div>
           </div>
