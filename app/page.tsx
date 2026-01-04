@@ -162,7 +162,7 @@ export default function Home() {
           <div className="flex items-center justify-between">
             <Link href="/" className="flex items-center">
               <Image
-                src="https://lh3.googleusercontent.com/sitesv/AAzXCkdCZ1NCNGaAiMUzJ4EfULNTFljwpFdZKEhPpSzprgbpz7ONw0CVHqad-G0Q9AEXDM4VXEnA82-mzE3frpa9Vpn52W0Vt_5IV2vLdB2-y7rBl6YMcHK-cfRHKDjrVakCrASjgCxoiY821_CKI0j-6k_l7kcXJdOR3sq9RDPsaetALikNv2j8XZlB=w16383"
+                src="/images/image1.png"
                 alt="Alessandra Krick Logo"
                 width={120}
                 height={40}
@@ -250,7 +250,7 @@ export default function Home() {
             >
               <div className="relative w-48 h-48 md:w-64 md:h-64 overflow-hidden rounded-lg">
                 <Image
-                  src="https://lh3.googleusercontent.com/sitesv/AAzXCkeChyI1XLcCBgMMO3dXFQNH-ES3AH8tJw3xvSMl7dJRqU_fmORJBm_bqSH8gRvbO7_EL22gs2h6bPeILI83gHZ7bW2c0RdgwKM6lb7mzqTtWQMaIGWc1NLxH9YR_7nWiQu__yOhUCndcarIPnUdneEskRdi5reaNxQv3H1QOlucVLB9HfFeeWHjnXKOdnXiesA-nr8SqzhylkJAcGzXg3KZYRnc2ZN7ZXs8=w1280"
+                  src="/images/image2.png"
                   alt="Alessandra Krick"
                   width={256}
                   height={256}
@@ -415,7 +415,7 @@ export default function Home() {
               <Link href="/product-management" className="block">
                 <div className="relative w-full h-64 rounded-lg overflow-hidden shadow-lg bg-gray-100 mb-4">
                   <Image
-                    src="https://lh3.googleusercontent.com/sitesv/AAzXCkcpXt-DU-n6nFdxTcXlBXpGslJzbjnwmf64D44URndDV6MAYZQW-6c_MciIiJoK5deC3sRTw4CpL1toho0HfznnqanVHNmN2l_3bz7sTcBK8vN_bcQHCO242fYtBI_JGyuQllnhF1a4jCttj45pxzE5H4F6NulRgiRUfi0YPXi99o0Mv2QCJeZZPhLGGlHdrhaPAx6hm41ard1a5JXpvhrAw_YT1EQs6ShcMkM=w1280"
+                    src="/images/image3.png"
                     alt="Product Management"
                     width={1280}
                     height={720}
@@ -439,7 +439,7 @@ export default function Home() {
               <a href="https://www.alessandrakrick.com/sushitime" target="_blank" rel="noopener noreferrer" className="block">
                 <div className="relative w-full h-64 rounded-lg overflow-hidden shadow-lg bg-gray-100 mb-4">
                   <Image
-                    src="https://lh3.googleusercontent.com/sitesv/AAzXCkcfEN1Yyo4yyn_2_vGX7PVVE5nTFTfSx55gXPtAgLs2fPwKqq_3IArJUJdxQm4q_ineDmhB_VWU2JmMT8GicXxdrCtMSP86pXjAzuR3aXeIuRP9LEsBp73Y94AOdImKD4Hk3kJoAXGkdGSWClWQsUIlfmBYqcP5ecxWJOZlzwnTq3Qkn8lU1rViN9gJcB21YGF4QVuyEgpFtEjQfLNaQNMuzDIKnPom6OqRi7g=w1280"
+                    src="/images/image4.png"
                     alt="SushiTime"
                     width={1280}
                     height={720}
@@ -463,7 +463,7 @@ export default function Home() {
               <a href="https://www.alessandrakrick.com/community" target="_blank" rel="noopener noreferrer" className="block">
                 <div className="relative w-full h-64 rounded-lg overflow-hidden shadow-lg bg-gray-100 mb-4">
                   <Image
-                    src="https://lh3.googleusercontent.com/sitesv/AAzXCkfZyQNqn0mBasi2tZUWrXHPD4p9WmQUPy_Z1Q2S5_3k0TH9PyJw9IuI_FJjENhYcBvwZJ-0WGu3bmPVN9ZE3-X2zghN57rt6LUYZGGPQp0YCX-oZ6Alie73APJ3Ch4UK9pNgkdyuTicEa7RwK41zZqPi4e0jHz-CtONqU4QR6bjxSzjLUlDspcS7lFsp3H3rPFMzIU2Zcdu2M1nSoMqsSfBoX8id2PUdzKc=w1280"
+                    src="/images/image5.png"
                     alt="Community"
                     width={1280}
                     height={720}
@@ -487,7 +487,7 @@ export default function Home() {
               <a href="https://www.alessandrakrick.com/graphic-design" target="_blank" rel="noopener noreferrer" className="block">
                 <div className="relative w-full h-64 rounded-lg overflow-hidden shadow-lg bg-gray-100 mb-4">
                   <Image
-                    src="https://lh3.googleusercontent.com/sitesv/AAzXCkdmBYhyfu09pwXRxQZkwiKe7as30bhyOpJvdVLRvbUtfjMxaB8CJrVi6_4nRT7PZZ1G9G4ruMwNng-E8Q1GIL8E9ncCQBpsnIH4j3uJu-9STuUegxmay5a63dtTlAzAk5TykgEkDaVx4JJ1pJfBvZOQ3ex437ut4KF_iuH0BFuXAtAckBAU_8ccP0FDJhkSr2MQezRIe46_smXOcsJLxA_eV1QUvK74imNKdPE=w1280"
+                    src="/images/image6.png"
                     alt="Graphic Design"
                     width={1280}
                     height={720}

@@ -55,7 +55,7 @@ export default function ProductManagement() {
           <div className="flex items-center justify-between">
             <Link href="/" className="flex items-center">
               <Image
-                src="https://lh3.googleusercontent.com/sitesv/AAzXCkdCZ1NCNGaAiMUzJ4EfULNTFljwpFdZKEhPpSzprgbpz7ONw0CVHqad-G0Q9AEXDM4VXEnA82-mzE3frpa9Vpn52W0Vt_5IV2vLdB2-y7rBl6YMcHK-cfRHKDjrVakCrASjgCxoiY821_CKI0j-6k_l7kcXJdOR3sq9RDPsaetALikNv2j8XZlB=w16383"
+                src="/images/image1.png"
                 alt="Alessandra Krick Logo"
                 width={120}
                 height={40}
@@ -168,7 +168,7 @@ export default function ProductManagement() {
                 className="block"
               >
                 <Image
-                  src="https://lh3.googleusercontent.com/sitesv/AAzXCkfLcNp0bJJYlrOLhOAso2q9NFAMQoIARMcnmr9QwkrOYT0F7QaV0fyAT3t2D7oYw2s4poylc7SxyD-etgGx-wufEIXAr69TD7A5j0JQ3BIj2fPkH4uQAvg4BG4SQgtqusjeJ90mUGv1uhbW6u3c7Eg42UUNVnSRAjzWVqMmGZ41TSMBQybvtLnuU_GKtRpxeIePLt56-52bz4qGWXYKA0TPKZJ05X9OEsBWZNo=w1280"
+                  src="/images/image7.png"
                   alt="Kidjo TV"
                   width={1280}
                   height={720}
@@ -178,7 +178,7 @@ export default function ProductManagement() {
             </div>
             <div className="relative w-full rounded-lg overflow-hidden shadow-lg bg-gray-100 group cursor-pointer">
               <Image
-                src="https://lh3.googleusercontent.com/sitesv/AAzXCke5x7gz5FNpvhE6NddGXnRdRmcmqqm2U6WzilVP3NGprH7nvXfIQf3Kxq01YKyg6icPM6mwQEY-ipTT9fCJvtsnztv-o9hgcVa5QcOOJbnNZJg4mpLb_Bulp1llH7aq9JBUNRLcnfku-OSqDGcwPlpJX6TI_2fxwWjSZS8_fkOouHn8VGvyTpVAg_HYvh30fklvwTi7V1G4oXgiA-B-XXSyUXTwaDAFShUu=w1280"
+                src="/images/image8.png"
                 alt="Product portfolio"
                 width={1280}
                 height={720}
@@ -221,7 +221,7 @@ export default function ProductManagement() {
         <div className="max-w-6xl mx-auto">
           <div className="relative w-full rounded-lg overflow-hidden shadow-lg bg-gray-100 group cursor-pointer">
             <Image
-              src="https://lh3.googleusercontent.com/sitesv/AAzXCkcNAThTpnEjb1vfhNIqRpRSwmTHPjR9cz3520cAh5UUIFlH95FHBS3e-KuPQnCHGESnxAIc1kRITY7akO5wECjLGnn74Uf_c8s4eO5whWq6p3LPc2tN2z7I2hLrrM9m3fWkRUfjApKUWem9LhiirQh_TlR_dyhxyI1vqQS5H7bSKv52rjqaN6pPcX5J_zB2qCs4MKfiwgm6X36O1ai8yQ258YoaZrrIsd33Lfw=w1280"
+              src="/images/image9.png"
               alt="Product Strategy"
               width={1280}
               height={720}
@@ -260,7 +260,7 @@ export default function ProductManagement() {
             <div className="space-y-3">
               <div className="relative w-full rounded-lg overflow-hidden shadow-lg bg-gray-100 group cursor-pointer">
                 <Image
-                  src="https://lh3.googleusercontent.com/sitesv/AAzXCkcnJ_RolruqLnbpMwxDUURu-RCWefXjP0KaqvyJhI6dPTW9as0sN0mCNjb2Cmp5v2a2SZQ8e4FZ7gp87quYHWHFacbFflJDb6ndw-PlAekhunsaU1lyi17h6MUMhbriTtIx-jmTt4jV3nsbOkcQBSqr8MFBhg2JWVQ6KTwplUhtU7I2TdW7hEiUqgHDHS222SvaG2mtIuNLHfDhN1XMoK8sH620xYnMvW-1=w1280"
+                  src="/images/image10.png"
                   alt="Planning poker"
                   width={1280}
                   height={720}
@@ -275,7 +275,7 @@ export default function ProductManagement() {
             <div className="space-y-3">
               <div className="relative w-full rounded-lg overflow-hidden shadow-lg bg-gray-100 group cursor-pointer">
                 <Image
-                  src="https://lh3.googleusercontent.com/sitesv/AAzXCkeBgw1W98H3fK7bWONqrPS734meVhhEEZoldLEumkJD35XwcSQWiC21x2_-3EAgpfHr4QbHu6DcW9gIrSOTqmXPegU6r8D8sUQc2Rn5xBFZ5lRfPioNoNKAck29b_eUtZ5ItKBONQ1mTA3-gmhF3BrKV1HV1IpIyW9oxyLOP5rQGTgqYxG-F4945ZV6exz5M33CwVsTJx-RHXWDICGFTNTppc44RLLChyFV=w1280"
+                  src="/images/image11.png"
                   alt="Sprint burndown"
                   width={1280}
                   height={720}
@@ -289,7 +289,7 @@ export default function ProductManagement() {
             <div className="space-y-3">
               <div className="relative w-full rounded-lg overflow-hidden shadow-lg bg-gray-100 group cursor-pointer">
                 <Image
-                  src="https://lh3.googleusercontent.com/sitesv/AAzXCkcMEW62RvQ7q5_xO15m1JeoKm7HAkAqbylJY4t5H9M5lbqYO-4GBaOcNPZvwPo6vQxvxltM8xNgrvjpeYq-fwptc6pYQCoK8EFy4wVS1AKorCE8ueJJeS5RwIWdSwS0HOpGqEukURhtgwkwV4MciEVqkUjWBwVaM6HH01mwvpfW2xJvArb2W8kE6ozdRylthB3QPLxuPw_DuyIHEKWtqSWnajKwXZZVUYHSs_c=w1280"
+                  src="/images/image12.png"
                   alt="Reviews and Retrospectives"
                   width={1280}
                   height={720}
@@ -361,7 +361,7 @@ export default function ProductManagement() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <div className="relative w-full rounded-lg overflow-hidden shadow-lg bg-gray-100 group cursor-pointer">
               <Image
-                src="https://lh3.googleusercontent.com/sitesv/AAzXCkfL5JcNG5I_kj1GQGEKQmZlFv8lPuKbN8EaEYoQvUbSm0wFNN2rWw-BkZOlPfLfvY2JP1sj6W3w88awjS-TDH-dqyCBSsMO3RejGrFeFx592jw1APbuOo1Xez8xmkQiBWlv6pyXFQ77VOU_tEoTDd5BSR-eAfK_wXg2TA3QaGDB5XdJ6dYEo8QjYDDaOkpbDuUT3qEnsU7GhnubK6nYO4KYMeQzlWC5X97n=w1280"
+                src="/images/image13.png"
                 alt="UX/UI Design"
                 width={1280}
                 height={720}
@@ -370,7 +370,7 @@ export default function ProductManagement() {
             </div>
             <div className="relative w-full rounded-lg overflow-hidden shadow-lg bg-gray-100 group cursor-pointer">
               <Image
-                src="https://lh3.googleusercontent.com/sitesv/AAzXCke1OYfW9xymtLaypIPRcO_cNrKsb1_Hcf7rHyXH7_viE9Kl5W4vl_LoJfF9Duk_xZe_qNBOYm-o4IDkSMGsThiuicG--yj7-Grx-k7oM9U73_EoHa6fCKcw5_5mBaUfWnuLeeuUnBf2DXu2Xdwyc8SQJn4xqdSy54y61CmPiNF4prrTApegUhG3L0-APGmPodV9UnRk1fMmQjtaxJr40TpwdUrYHLd3i-g0huU=w1280"
+                src="/images/image14.png"
                 alt="UX/UI Design"
                 width={1280}
                 height={720}
@@ -408,7 +408,7 @@ export default function ProductManagement() {
             <div className="space-y-3">
               <div className="relative w-full rounded-lg overflow-hidden shadow-lg bg-gray-100 group cursor-pointer">
                 <Image
-                  src="https://lh3.googleusercontent.com/sitesv/AAzXCkfLUSmH-d0e9LcpWjRyJzl1lWTbagR_uj_xPL7LksASPQFMp69fum2MeSetq_meHP1AF9qdFvCzRUCIYuLaiRA2cxmeSDeHYURXW8jQovCouEQ8-JHSXt26beKB1Y9gMIwuArTQsUE5FJfJOkH-Wk1UQ9HxNkd2gRsVdntYsgUqizJP5chXaSvN4vH88r5tmkZOLXKuRqtC7YwG57r6jLb-gJXp1UOBg6IN=w1280"
+                  src="/images/image15.png"
                   alt="Data dashboard spreadsheet"
                   width={1280}
                   height={720}
@@ -435,7 +435,7 @@ export default function ProductManagement() {
             <div className="space-y-3">
               <div className="relative w-full rounded-lg overflow-hidden shadow-lg bg-gray-100 group cursor-pointer">
                 <Image
-                  src="https://lh3.googleusercontent.com/sitesv/AAzXCkc9Gj_j9pYWKYIqOsVoI3bmgkbpckDM5hspHSDN4EaE7jHewYnPm_iOD_ImhdLLOolJrNvsf5yggBPoIy3US1uNHhyoZ2es70JmlLgKC9y6eiRCs32VLfqSON6OGsEEMs8SU0p_6qDCB__Yi2aBRtzeuhZmqkOqvh8zj_w-n8qHlhg9LJ90lYeSBMRTuvFR5QhCoda7dBOd-H7Mrvp-BId0HEPkSuWsuC8OJog=w1280"
+                  src="/images/image16.png"
                   alt="Data dashboard spreadsheet"
                   width={1280}
                   height={720}
@@ -491,7 +491,7 @@ export default function ProductManagement() {
         <div className="max-w-3xl mx-auto">
           <div className="relative w-full rounded-lg overflow-hidden shadow-lg bg-gray-100 group cursor-pointer">
             <Image
-              src="https://lh3.googleusercontent.com/sitesv/AAzXCkc3GB-I2SvYHAkWsLNXv1S4GoK5WLoeNLrmLCMkf0rCyHs7cbfA42ixHorTd2NoNoGm4ujhuKwKxkbWRvj9hkNf6SgduRgygTM0DNUKxvBMhS2cikPlfJhywykONXkjJvoHKVf7iy1nXiVkmCE8_VZWw9tSKD6BRdN98z1WltIkpCHDMbW9PD6-wJVWY7_GlPIMUBeDgk-z7YuwO4CLAkCdxNt56WYGoRzQ2gM=w1280"
+              src="/images/image17.png"
               alt="Release Management"
               width={1280}
               height={720}
@@ -530,7 +530,7 @@ export default function ProductManagement() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-4">
             <div className="relative w-full rounded-lg overflow-hidden shadow-lg bg-gray-100 group cursor-pointer">
               <Image
-                src="https://lh3.googleusercontent.com/sitesv/AAzXCkd-OEIadNe7h7hfGRazAzbQJ2GkrYZmsi8Q1EiA-1kfh5pLZhrq987RsE85hxOI99puI13B5aUkBceJbiODQfIbgaOWeE0bTu-2PYJgmPymlXVL9LF3SoocfS4l08Zhzn0h1WFWoAv-Vl7xiaGQ85HVxKrKyVFc1HYEl2tjfMg5vTNd8uYGdR1fP7e6TcLgzLchorW9he_g4DKOfZ_oMXau8gCjeNkQmtAj=w1280"
+                src="/images/image18.png"
                 alt="Tech meeting"
                 width={1280}
                 height={720}
@@ -539,7 +539,7 @@ export default function ProductManagement() {
             </div>
             <div className="relative w-full rounded-lg overflow-hidden shadow-lg bg-gray-100 group cursor-pointer">
               <Image
-                src="https://lh3.googleusercontent.com/sitesv/AAzXCkd3CwKtbFEzgTHGbwtxeUfvMA6tob9-VlSERQ4ulYaMDMSoDrXpziJx6RinuczK7iwaG69xS1EJtehml32dDfVFzYGZbiN2YAhpPQ_atMDERYrAx-InsagpVaq0auLJ18o0R4NSwDoQADD2lNMr-RI6VGKS4FtNi_P8rfLad4rC80COotu9lNKdDv6Lho27-U1vr1ub9dOUwbv7jxPYdCcD0Bc6T16rYJwSiI8=w1280"
+                src="/images/image19.png"
                 alt="Tech meeting"
                 width={1280}
                 height={720}
@@ -585,7 +585,7 @@ export default function ProductManagement() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="relative w-full rounded-lg overflow-hidden shadow-lg bg-gray-100 group cursor-pointer">
               <Image
-                src="https://lh3.googleusercontent.com/sitesv/AAzXCkdkylAKB9GkXWWPWm0my9bhbUp3Ugxe--ltRy_z7SC0RB4Ut54y8f9q7WusbM236aT76_zZtJQvzg6A3qJO-vaMr8rsqV9Y7pYm9N6Rgv_CqJri8DYjqAENzwCdsBKPpDif7hVyXQZ-NCoUmTzF0AAFcmWPQyybbw_GN9JA4cK7NOfp-OF0Sfi-M3ilxlh58fkU_qy1gv32TNYLiNdsPhPpWayQ7fhypXob6B0=w1280"
+                src="/images/image20.png"
                 alt="Team management"
                 width={1280}
                 height={720}
@@ -594,7 +594,7 @@ export default function ProductManagement() {
             </div>
             <div className="relative w-full rounded-lg overflow-hidden shadow-lg bg-gray-100 group cursor-pointer">
               <Image
-                src="https://lh3.googleusercontent.com/sitesv/AAzXCkduFmtVUP5nLmEhhAnA7wtWIzOdMHK7lCBH5xr-ruoquHJ7OjdeAOhdVqoqa6qXsd3FpAp0jIYZH0WT716PFDumIhrcGO48TIhmlL_jlF2FyABlq2Xue2RuEhqKo-r_5fiyDEH-0uYWHMNxDbTX72rT4GReJjNCdkw8CPSWKDcfAxYW82q0MiGUVC9-4779h5HmhFtC344ACKN38Y-BHeDR_HEStVbtwANxmSg=w1280"
+                src="/images/image21.png"
                 alt="Team management"
                 width={1280}
                 height={720}
@@ -605,7 +605,7 @@ export default function ProductManagement() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="relative w-full rounded-lg overflow-hidden shadow-lg bg-gray-100 group cursor-pointer">
               <Image
-                src="https://lh3.googleusercontent.com/sitesv/AAzXCkc3kNrua2cW1sMdbIRGanWSV1eoURMAL8a5XV4t5TzR6mkvShS-2jLhhYjXqJBKnsT7-JUa2I5BD-YIUqUPe0uA6zRBGDK3Rv1NY7ns7IylkFjE4avaPXsNunl-edp97qxOKn8QNOH-4UGva6xk0Q_F4vSY8rV06VZvoZcpP7THdtft8vIrWx8pPlTv1qJlyV4Bpog94Gn3t-70Sm3rL_17MPR43mmzNLD_J5U=w1280"
+                src="/images/image22.png"
                 alt="Team engagement"
                 width={1280}
                 height={720}
@@ -614,7 +614,7 @@ export default function ProductManagement() {
             </div>
             <div className="relative w-full rounded-lg overflow-hidden shadow-lg bg-gray-100 group cursor-pointer">
               <Image
-                src="https://lh3.googleusercontent.com/sitesv/AAzXCkca6nAuK8CsakEXc6yr7Z7e_EZoL0rVVqFvFMmZ0yY8K09f-U53Sz6IUUySoUu8K_GD1KazpMiqiUVTLkqMthyML097ZPyj2jcWFwT43MNkeckNZjhMWCV2Fcp004dCtnBC-Oq99YNIaHTjZVeM5RZRVVXRkt38pGrd2x0XnE-EFJ9vAiJMnuzvE40ziVGjpORuW97Q_FAE_8N9rE3yQ6gteEMsXXKaBHBk104=w1280"
+                src="/images/image23.png"
                 alt="Team engagement"
                 width={1280}
                 height={720}
@@ -975,7 +975,7 @@ export default function ProductManagement() {
           {/* <div className="max-w-3xl mx-auto mt-8">
             <div className="relative w-full rounded-lg overflow-hidden shadow-lg bg-gray-100 group cursor-pointer">
               <Image
-                src="https://lh3.googleusercontent.com/sitesv/AAzXCkemniWL6d8C0d41alsseBfibVpgXY55_H-9rp4BMjB0FXjgZ5BU1th6R6HrgfKTPGHVGq5t9BEPG2MNyVqig-QSlqfoae2U0XOEMtAaK_xzEzGLWO2NsI3k4WbTYOzfcKknRXGT4vmYD7xsCoL4fW-u2FygXZ8rfC_tuAffvuITEvm03SjmLazoF_OzguwQd28ALzLDI7x0-l35pCPbKa7oQFTN5vq2EB-UbPA=w1280"
+                src="/images/image24.png"
                 alt="Outcomes"
                 width={1280}
                 height={720}
@@ -1012,7 +1012,7 @@ export default function ProductManagement() {
         <div className="max-w-3xl mx-auto mt-8">
           <div className="relative w-full rounded-lg overflow-hidden shadow-lg bg-gray-100 group cursor-pointer">
             <Image
-              src="https://lh3.googleusercontent.com/sitesv/AAzXCkeQBJ-e3oKH1qubnBVSQrXn25sgjLcZWneJR_1ymXcUf-SMlQTf01f6Wye53F4IMy39wEG_zZNdOkImPK14h6un45HGSBlBjnlugpzMIgO7TMsTncBsqtWZqfCE4DDrJumsDNix9Xr1gXgdEuKnZVG5liRb5CncOqbSGLH7rd1h7Y2XFhNPqgvlL5ZmuvsTPPWpaMOAIVF92dAy-3hf0tMdicEA_hrULCaT=w1280"
+              src="/images/image25.png"
               alt="Let's build something users love"
               width={1280}
               height={720}
@@ -1037,7 +1037,7 @@ export default function ProductManagement() {
                 className="transition-transform hover:scale-110 duration-300"
               >
                 <Image
-                  src="https://lh3.googleusercontent.com/sitesv/AAzXCkfN4HmAWIgnQKn4lHnrCKcG02znsznqgmoyHRpvGn9Ka193Pujit8OhJVxexE0vDAx2O9EZ38LkyLKvlYp9ssSW3Fg9og_Lt0mPX8AfHc6drXpOJQdmLLjEBwd0bfEBGxXoLNU2bvT-0cRBbJCZh-v57QaoOXsRnKhG8qc-8EmeDEYqxajx49NRNvw-jgdaVlYnWrXgFIYA9M0C"
+                  src="/images/linkedin-icon.png"
                   alt="LinkedIn"
                   width={40}
                   height={40}
@@ -1049,7 +1049,7 @@ export default function ProductManagement() {
                 className="transition-transform hover:scale-110 duration-300"
               >
                 <Image
-                  src="https://lh3.googleusercontent.com/sitesv/AAzXCkewqWGdG8MJgD1ugUQY6P1DporBiqprvvN8YlBvYYRijwurXT9bX6TH6Wc32SOdY66X8VAKdUIuAxVLX-GqubRpC78XNNWSurn6HE8tJPPG03aStNyHls94ZzXrzdRUhVfv9f5_88TygZVj16RddsFskmBoPnGWidO3wZrGchGztNsmnA_7rDq_JWCBLx1pFofcx3KoNdNOgA"
+                  src="/images/email-icon.png"
                   alt="Email"
                   width={40}
                   height={40}

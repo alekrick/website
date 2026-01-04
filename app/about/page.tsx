@@ -28,7 +28,7 @@ export default function About() {
           <div className="flex items-center justify-between">
             <Link href="/" className="flex items-center">
               <Image
-                src="https://lh3.googleusercontent.com/sitesv/AAzXCkdCZ1NCNGaAiMUzJ4EfULNTFljwpFdZKEhPpSzprgbpz7ONw0CVHqad-G0Q9AEXDM4VXEnA82-mzE3frpa9Vpn52W0Vt_5IV2vLdB2-y7rBl6YMcHK-cfRHKDjrVakCrASjgCxoiY821_CKI0j-6k_l7kcXJdOR3sq9RDPsaetALikNv2j8XZlB=w16383"
+                src="/images/image1.png"
                 alt="Alessandra Krick Logo"
                 width={120}
                 height={40}
@@ -89,7 +89,7 @@ export default function About() {
             <div className="flex-shrink-0 w-full md:w-auto max-w-sm md:ml-4">
               <div className="relative w-full h-auto rounded-lg overflow-hidden shadow-lg">
                 <Image
-                  src="https://lh3.googleusercontent.com/sitesv/AAzXCkfYhJtE0o74hi8Y9OqngSXVyIv2a7wpq8sit-wrcX9upii-E6OMZX1ym6YadyjPTwJKYR7J-WA-EuYjrV63Qrf-X9h07LnuRFjNtSKl99zuG60K8_7biP6h4_Sgs0cCz1SR1izRXPyDfqVXNTjxDh61cnuf352tRr-2DwGo_ZW6cxHf15WHzANQTqMBoni2Sm3SNl9hIwwZ9i15_KgHQdtl_Dtzq_Es9sBbDho=w1280"
+                  src="/images/image26.png"
                   alt="person holding a camera by the parthenon in athens"
                   width={1280}
                   height={720}
@@ -181,7 +181,7 @@ export default function About() {
                 className="transition-transform hover:scale-110 duration-300"
               >
                 <Image
-                  src="https://lh3.googleusercontent.com/sitesv/AAzXCkfN4HmAWIgnQKn4lHnrCKcG02znsznqgmoyHRpvGn9Ka193Pujit8OhJVxexE0vDAx2O9EZ38LkyLKvlYp9ssSW3Fg9og_Lt0mPX8AfHc6drXpOJQdmLLjEBwd0bfEBGxXoLNU2bvT-0cRBbJCZh-v57QaoOXsRnKhG8qc-8EmeDEYqxajx49NRNvw-jgdaVlYnWrXgFIYA9M0C"
+                  src="/images/linkedin-icon.png"
                   alt="LinkedIn"
                   width={40}
                   height={40}
@@ -193,7 +193,7 @@ export default function About() {
                 className="transition-transform hover:scale-110 duration-300"
               >
                 <Image
-                  src="https://lh3.googleusercontent.com/sitesv/AAzXCkewqWGdG8MJgD1ugUQY6P1DporBiqprvvN8YlBvYYRijwurXT9bX6TH6Wc32SOdY66X8VAKdUIuAxVLX-GqubRpC78XNNWSurn6HE8tJPPG03aStNyHls94ZzXrzdRUhVfv9f5_88TygZVj16RddsFskmBoPnGWidO3wZrGchGztNsmnA_7rDq_JWCBLx1pFofcx3KoNdNOgA"
+                  src="/images/email-icon.png"
                   alt="Email"
                   width={40}
                   height={40}
