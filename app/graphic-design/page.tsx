@@ -127,14 +127,16 @@ export default function GraphicDesign() {
               >
                 Graphic Design
               </Link>
-              <a
-                href="https://www.alessandrakrick.com/sushitime"
+              <Link
+                href="/sushitime"
                 className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200"
               >
                 SushiTime
-              </a>
+              </Link>
               <a
-                href="https://www.alessandrakrick.com/community"
+                href="https://drive.google.com/file/d/1C5lVcUF5hkwpRnfnHAN0YH4z2duQ0c4p/view"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200"
               >
                 Community
@@ -196,15 +198,17 @@ export default function GraphicDesign() {
               >
                 Graphic Design
               </Link>
+                <Link
+                  href="/sushitime"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200 py-2"
+                >
+                  SushiTime
+                </Link>
               <a
-                href="https://www.alessandrakrick.com/sushitime"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200 py-2"
-              >
-                SushiTime
-              </a>
-              <a
-                href="https://www.alessandrakrick.com/community"
+                href="https://drive.google.com/file/d/1C5lVcUF5hkwpRnfnHAN0YH4z2duQ0c4p/view"
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200 py-2"
               >

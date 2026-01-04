@@ -7,6 +7,8 @@ import Image from "next/image";
 
 // Reusable Section component with scroll-triggered animation
 const Section = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => {
+  const [isVisible, setIsVisible] = useState(true); // Start visible as fallback
+  
   return (
     <motion.section
       initial={{ opacity: 0, y: 30 }}
@@ -14,6 +16,7 @@ const Section = ({ children, className = "" }: { children: React.ReactNode; clas
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.5, ease: "easeOut" }}
       className={className}
+      onAnimationStart={() => setIsVisible(true)}
     >
       {children}
     </motion.section>
@@ -197,14 +200,16 @@ export default function Home() {
               >
                 Graphic Design
               </Link>
-              <a
-                href="https://www.alessandrakrick.com/sushitime"
+              <Link
+                href="/sushitime"
                 className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200"
               >
                 SushiTime
-              </a>
+              </Link>
               <a
-                href="https://www.alessandrakrick.com/community"
+                href="https://drive.google.com/file/d/1C5lVcUF5hkwpRnfnHAN0YH4z2duQ0c4p/view"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200"
               >
                 Community
@@ -267,15 +272,17 @@ export default function Home() {
                 >
                   Graphic Design
                 </Link>
-                <a
-                  href="https://www.alessandrakrick.com/sushitime"
+                <Link
+                  href="/sushitime"
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200 py-2"
                 >
                   SushiTime
-                </a>
+                </Link>
                 <a
-                  href="https://www.alessandrakrick.com/community"
+                  href="https://drive.google.com/file/d/1C5lVcUF5hkwpRnfnHAN0YH4z2duQ0c4p/view"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200 py-2"
                 >
@@ -546,7 +553,7 @@ export default function Home() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="group"
             >
-              <a href="https://www.alessandrakrick.com/sushitime" target="_blank" rel="noopener noreferrer" className="block">
+              <Link href="/sushitime" className="block">
                 <div className="relative w-full h-64 rounded-lg overflow-hidden shadow-lg bg-gray-100 mb-4">
                   <motion.div
                     initial={{ opacity: 0 }}
@@ -567,7 +574,7 @@ export default function Home() {
                 <p className="text-center text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">
                   SushiTime →
                 </p>
-              </a>
+              </Link>
             </motion.div>
 
             {/* Community */}
@@ -578,7 +585,7 @@ export default function Home() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="group"
             >
-              <a href="https://www.alessandrakrick.com/community" target="_blank" rel="noopener noreferrer" className="block">
+              <a href="https://drive.google.com/file/d/1C5lVcUF5hkwpRnfnHAN0YH4z2duQ0c4p/view" target="_blank" rel="noopener noreferrer" className="block">
                 <div className="relative w-full h-64 rounded-lg overflow-hidden shadow-lg bg-gray-100 mb-4">
                   <motion.div
                     initial={{ opacity: 0 }}

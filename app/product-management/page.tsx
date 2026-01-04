@@ -89,14 +89,16 @@ export default function ProductManagement() {
               >
                 Graphic Design
               </Link>
-              <a
-                href="https://www.alessandrakrick.com/sushitime"
+              <Link
+                href="/sushitime"
                 className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200"
               >
                 SushiTime
-              </a>
+              </Link>
               <a
-                href="https://www.alessandrakrick.com/community"
+                href="https://drive.google.com/file/d/1C5lVcUF5hkwpRnfnHAN0YH4z2duQ0c4p/view"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200"
               >
                 Community
@@ -159,15 +161,17 @@ export default function ProductManagement() {
                 >
                   Graphic Design
                 </Link>
-                <a
-                  href="https://www.alessandrakrick.com/sushitime"
+                <Link
+                  href="/sushitime"
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200 py-2"
                 >
                   SushiTime
-                </a>
+                </Link>
                 <a
-                  href="https://www.alessandrakrick.com/community"
+                  href="https://drive.google.com/file/d/1C5lVcUF5hkwpRnfnHAN0YH4z2duQ0c4p/view"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200 py-2"
                 >
@@ -466,7 +470,7 @@ export default function ProductManagement() {
             <div className="pt-4 space-y-3">
               <p>
                 <a
-                  href="https://www.alessandrakrick.com/community"
+                  href="https://drive.google.com/file/d/1C5lVcUF5hkwpRnfnHAN0YH4z2duQ0c4p/view"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-600 hover:text-blue-700 underline font-medium transition-colors duration-200"
