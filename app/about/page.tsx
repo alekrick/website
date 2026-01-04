@@ -59,12 +59,12 @@ export default function About() {
               >
                 Product Management
               </Link>
-              <a
-                href="https://www.alessandrakrick.com/graphic-design"
+              <Link
+                href="/graphic-design"
                 className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200"
               >
                 Graphic Design
-              </a>
+              </Link>
               <a
                 href="https://www.alessandrakrick.com/sushitime"
                 className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200"
@@ -128,13 +128,13 @@ export default function About() {
                 >
                   Product Management
                 </Link>
-                <a
-                  href="https://www.alessandrakrick.com/graphic-design"
+                <Link
+                  href="/graphic-design"
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200 py-2"
                 >
                   Graphic Design
-                </a>
+                </Link>
                 <a
                   href="https://www.alessandrakrick.com/sushitime"
                   onClick={() => setIsMobileMenuOpen(false)}
