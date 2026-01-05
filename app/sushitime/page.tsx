@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -22,33 +22,59 @@ const Section = ({ children, className = "" }: { children: React.ReactNode; clas
 
 export default function SushiTime() {
   const [isScrollingDown, setIsScrollingDown] = useState(false);
-  const [lastScrollY, setLastScrollY] = useState(0);
+  const lastScrollY = useRef(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
+    let ticking = false;
+    
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        setIsScrollingDown(true);
-      } else if (currentScrollY < lastScrollY) {
-        setIsScrollingDown(false);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const currentScrollY = window.scrollY;
+          const previousScrollY = lastScrollY.current;
+          
+          // Always show menu at the top of the page
+          if (currentScrollY <= 10) {
+            setIsScrollingDown(false);
+            lastScrollY.current = currentScrollY;
+            ticking = false;
+            return;
+          }
+          
+          // Scrolling up - show menu immediately
+          if (currentScrollY < previousScrollY) {
+            setIsScrollingDown(false);
+            lastScrollY.current = currentScrollY;
+            ticking = false;
+            return;
+          }
+          
+          // Scrolling down and past 100px - hide menu
+          if (currentScrollY > previousScrollY && currentScrollY > 100) {
+            setIsScrollingDown(true);
+          }
+          
+          lastScrollY.current = currentScrollY;
+          ticking = false;
+        });
+        ticking = true;
       }
-      
-      setLastScrollY(currentScrollY);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
+  }, []);
 
   return (
     <main className="min-h-screen bg-white scroll-smooth overflow-x-hidden">
       {/* Header */}
       <header
-        className={`sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200 shadow-sm transition-transform duration-300 ${
-          isScrollingDown ? "-translate-y-full" : "translate-y-0"
-        }`}
+        className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200 shadow-sm transition-transform duration-300"
+        style={{
+          transform: isScrollingDown ? "translateY(-100%)" : "translateY(0)",
+          willChange: "transform",
+        }}
       >
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
@@ -689,9 +715,14 @@ export default function SushiTime() {
             PROCESS DECK →
           </a>
           <p className="text-gray-600">
-            <Link href="/community" className="text-blue-600 hover:text-blue-800 underline italic">
+            <a
+              href="https://drive.google.com/file/d/1C5lVcUF5hkwpRnfnHAN0YH4z2duQ0c4p/view"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:text-blue-800 underline italic"
+            >
               or Check my next project →
-            </Link>
+            </a>
           </p>
         </div>
       </Section>
@@ -699,35 +730,74 @@ export default function SushiTime() {
       {/* Footer */}
       <footer className="bg-gray-50 border-t border-gray-200 py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div className="text-sm text-gray-600">
-              © {new Date().getFullYear()} Alessandra Krick. All rights reserved.
+          <div className="flex flex-col gap-8">
+            {/* Navigation Links */}
+            <div className="flex flex-wrap justify-center gap-6 text-sm">
+              <Link
+                href="/homepage"
+                className="text-gray-700 hover:text-blue-600 transition-colors duration-200"
+              >
+                Home
+              </Link>
+              <Link
+                href="/about"
+                className="text-gray-700 hover:text-blue-600 transition-colors duration-200"
+              >
+                About
+              </Link>
+              <Link
+                href="/product-management"
+                className="text-gray-700 hover:text-blue-600 transition-colors duration-200"
+              >
+                Product Management
+              </Link>
+              <Link
+                href="/graphic-design"
+                className="text-gray-700 hover:text-blue-600 transition-colors duration-200"
+              >
+                Graphic Design
+              </Link>
+              <Link
+                href="/sushitime"
+                className="text-gray-700 hover:text-blue-600 transition-colors duration-200"
+              >
+                SushiTime
+              </Link>
             </div>
-            <div className="flex items-center gap-6">
-              <a
-                href="https://www.linkedin.com/in/alessandrakrick/"
-                className="transition-transform hover:scale-110 duration-300"
-              >
-                <Image
-                  src="/images/linkedin-icon.png"
-                  alt="LinkedIn"
-                  width={40}
-                  height={40}
-                  className="rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
-                />
-              </a>
-              <a
-                href="mailto:akrick.business@gmail.com"
-                className="transition-transform hover:scale-110 duration-300"
-              >
-                <Image
-                  src="/images/email-icon.png"
-                  alt="Email"
-                  width={40}
-                  height={40}
-                  className="rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
-                />
-              </a>
+            
+            {/* Copyright and Social Links */}
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="text-sm text-gray-600">
+                © {new Date().getFullYear()} Alessandra Krick. All rights reserved.
+              </div>
+              <div className="flex items-center gap-6">
+                <a
+                  href="https://www.linkedin.com/in/alessandrakrick/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-transform hover:scale-110 duration-300"
+                >
+                  <Image
+                    src="/images/linkedin-icon.png"
+                    alt="LinkedIn"
+                    width={40}
+                    height={40}
+                    className="rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
+                  />
+                </a>
+                <a
+                  href="mailto:akrick.business@gmail.com"
+                  className="transition-transform hover:scale-110 duration-300"
+                >
+                  <Image
+                    src="/images/email-icon.png"
+                    alt="Email"
+                    width={40}
+                    height={40}
+                    className="rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
+                  />
+                </a>
+              </div>
             </div>
           </div>
         </div>
