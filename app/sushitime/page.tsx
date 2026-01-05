@@ -209,7 +209,7 @@ export default function SushiTime() {
       {/* Hero Section with Background Image */}
       <motion.section 
         className="relative w-full h-96 md:h-[500px] bg-cover bg-center" 
-        style={{ backgroundImage: "url(https://lh3.googleusercontent.com/sitesv/AAzXCkcnNNxkIQfcRJQt1I98wqvlIBCEveuBpr0bR9pgIoyep2aLB0U8d8p4Na3GY3JZysbRP5Z5B15igPj7kwwBRWtSQeqvCr7tjEnlb5yMShTg3gM4X-l8EFnbQazqzKoOtlwc-84FvejFnHmdGTOMw8eWGCk13WZrts8IzktULksCQIehaG_U9sTZSCE=w16383)" }}
+        style={{ backgroundImage: "url(/images/image31.png)" }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
@@ -277,7 +277,7 @@ export default function SushiTime() {
               transition={{ duration: 0.6, ease: "easeOut" }}
             >
               <Image
-                src="https://lh3.googleusercontent.com/sitesv/AAzXCkeHnlBHwQCzvHSOvRPpM6QVH983s2lweasviXF8tLuTbwRZfApQebsNvK2Zv2qk_Wpy2MIMSJ1SZLCiEFbn64UH1TBUltRNSM_i58ENxiqRq3FPUEJ3Awvj9zBCbbY0rJVYJuSFMfFtzE4i0KWI06uKcb7E5W_YiAfS_368-cUVGvkmLaZGBUYOtIQ=w1280"
+                src="/images/image32.png"
                 alt="SushiTime project"
                 width={1280}
                 height={720}
@@ -324,7 +324,7 @@ export default function SushiTime() {
               transition={{ duration: 0.6, ease: "easeOut" }}
             >
               <Image
-                src="https://lh3.googleusercontent.com/sitesv/AAzXCkcmYpJGxfJGQIfEuVailXGPf7OH6oekr5ywFbWCQYi_ZsYhUS3TmLiMIlq8YBAvESsmnESWnWXbDTf_CXSlsYIC5544RGXe9j_gkZKjmS1G3nb0FtOS0jmh9YgHXZKjC7-oSyuS285ex89voLxCuI2zO7Sx85lVrVCMLb6c7cZlzMOLykKUSs_54ro=w16383"
+                src="/images/image33.png"
                 alt="Kick-off research"
                 width={1280}
                 height={720}
@@ -347,7 +347,7 @@ export default function SushiTime() {
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
             <Image
-              src="https://lh3.googleusercontent.com/sitesv/AAzXCkd24qRvW6P-lkFVGIEBq5-EByvVDhkBJvKd65jSUInn0xLzo0rOQUsdj5vAbyPV3fluxQSvSVZuusRuu-RXZ2jDirPMzkDXCksisUCjk5768A2cQsME3cJLCSGoXeKIhi9xnvBgXf_Z1VOUKXsaWML_Wby8Ez8aaxtUyaBHLGAfWeskYeoCv7WCLzN_ZjiCyTXPXecrcIK3SWYWy7vnhnQ-bgScnJHAbu4A054=w1280"
+              src="/images/image34.png"
               alt="User personas"
               width={1280}
               height={720}
@@ -369,7 +369,7 @@ export default function SushiTime() {
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
             <Image
-              src="https://lh3.googleusercontent.com/sitesv/AAzXCkd_HyTCQDayP_UJLStkPqkd8LD455JZhLBROHSw_QV2tGzv8qmNAygIaOps0wsFJ6N0vTtLW3RNbyzG1TzGCsTN5PWOoCQaPwzrs01q3NHzrt0U9uZglKMg5uHUDtKSdoghmiI7j3TGUlgECpesPLEcg9Dr6l0ACUaTJFOgFgMtXxwf-IzTKAz41VS1rAEtAFGtOa92CYhEHIf9IEoa3YuALL6NglbXe9Yo=w1280"
+              src="/images/image35.png"
               alt="Information Architecture"
               width={1280}
               height={720}
@@ -392,7 +392,7 @@ export default function SushiTime() {
               transition={{ duration: 0.6, ease: "easeOut" }}
             >
               <Image
-                src="https://lh3.googleusercontent.com/sitesv/AAzXCkfGQnz4RjL8KXlz8LduYRV_XLBsBq6P-ZqyB0Ys2Ax7jcokZIYiumyi-YD-AOjK9-V9hDn2UrMw4xEyC22VlBG7j0GjZqlP5dUQPax4M5beoYvf0lXCgRUggQwSa8dOFf4IOg2rS57I_qxEmH3lkkn5Bs9ljNafJUJykKma6ut_uk6tBhBZvLPzvyWfMiHF2bEN5jh7jLtHGCh5yPWWQMQqOwAyRO5szUB_=w1280"
+                src="/images/image36.png"
                 alt="Paper Wireframes 1"
                 width={1280}
                 height={720}
@@ -407,7 +407,7 @@ export default function SushiTime() {
               transition={{ duration: 0.6, ease: "easeOut" }}
             >
               <Image
-                src="https://lh3.googleusercontent.com/sitesv/AAzXCkcWE_N46kfxPQ_aghYFw9X1-Ab0xbQrpuXkfCS0PWB77MlwOKAqdXDFQ02oAXhsxC7PuF5fS49KIxRtvWNCSgj9RtXAItR5iYuoCLrairl3zUzWMAugihBWD-BfwX9KN97Db7pznEFFlPGKjKAr2p13qTcyRAUYGaNehvJsLd_-8fC6YyyKJOFt2SwhcrXd8hzEDVx9G-Y8ep3OdKJRVSZtYsXOURFqMLtyJfw=w1280"
+                src="/images/image37.png"
                 alt="Paper Wireframes 2"
                 width={1280}
                 height={720}
@@ -422,7 +422,7 @@ export default function SushiTime() {
               transition={{ duration: 0.6, ease: "easeOut" }}
             >
               <Image
-                src="https://lh3.googleusercontent.com/sitesv/AAzXCkdba0shtsUdPjAscOaa1Iv9zqZb5ZiDstWADGdP0vcFnAg546rxR1C33cNz8tV9g_Iyc-hYTgvXyUhVsOaDmEYDzRCOBTTkYpnYL5nslOOykxjl-TbUhiAdBoqBu4NZ_qIPFRooJSuUayvkYk2zl9RxxkylP7c9XdzRAqEDcdB4YNIjbdTjLSeYYf3-D8MR_y11WeQsGdDU3-P6EwdXffZpxaCGUiVkTMTjnaA=w1280"
+                src="/images/image38.png"
                 alt="Paper Wireframes 3"
                 width={1280}
                 height={720}
@@ -437,7 +437,7 @@ export default function SushiTime() {
               transition={{ duration: 0.6, ease: "easeOut" }}
             >
               <Image
-                src="https://lh3.googleusercontent.com/sitesv/AAzXCkfhtMNljZi7Lunx5KdEcT30A-3SdxNccs8HtexORdmc3r5KezQqae20Sbfs5ybqqt88hNB-TgU6gw1qpG9efpFnVZknDcMUQUKKcx7pT7e_h8cTmsUwnWqmzk2xtPhTLR5UUdlttvR9o6fPiXW7KWRMR9LotbHCjztQNziykwbgIlhy1vz44b04o6wvPfGubnVL6kbQvDlxb06ZcF_2JLMVEFCHIu6sKNFEz2k=w1280"
+                src="/images/image39.png"
                 alt="Paper Wireframes 4"
                 width={1280}
                 height={720}
@@ -482,7 +482,7 @@ export default function SushiTime() {
               transition={{ duration: 0.6, ease: "easeOut" }}
             >
               <Image
-                src="https://lh3.googleusercontent.com/sitesv/AAzXCkcjnXen465WfKM5VClIr2HBQUHEc33AMtC63vVCeSzepehQJka8fFcUsqiN_votShnsZG6najERDmHZKfrGhgTILgkmuV_WFa01oWG__5DkVE2r8CSl-2qZ3HYrI6zDOUIQhoB-LNF69AJK3Dj0zihs3koU1V7TsoU9T-I_O4teKMcVZdJMYKJHLXeYzHImlkwjmQ3e4lx0wqqX595QK7PMaeKoqJ80WKN6cA8=w1280"
+                src="/images/image40.png"
                 alt="Wireflow"
                 width={1280}
                 height={720}
@@ -501,7 +501,7 @@ export default function SushiTime() {
               transition={{ duration: 0.6, ease: "easeOut" }}
             >
               <Image
-                src="https://lh3.googleusercontent.com/sitesv/AAzXCkciAnVg3EqdwtL_g2se7wE3XCx6glLD9L8QllClXSCrZiaEcjTj--pes5mWeWUuOMqM-JzbcEVp_cUzyM6tNPORNDE8b2oDVyUwMWKQLMfefHWqkpbd3XeGeXTRWYglwporkbBa8hK_bsCOn8EhV_Ja04r6XS4pqpptyI-5vC1H9jNX_Hsc8IMNeLGiHex-zEBFf0dox2JqzTeAFX7YR7spf5UqBQLYF6JW6Z8=w1280"
+                src="/images/image41.png"
                 alt="High-Fidelity Prototype"
                 width={1280}
                 height={720}
@@ -654,7 +654,7 @@ export default function SushiTime() {
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
             <Image
-              src="https://lh3.googleusercontent.com/sitesv/AAzXCkcVG5I67UdkCgtY_VJw5XwD2a9fA2_rGTo8kbafF-6pwOIRqJS8tqCuiKEbI3TZxDaZ-RU0dG_EskHU2NF93QaYGFTO__xAPoxqP8iwq--i8dlKhZxsKsUFeY1B-ws5YeTsfYo1OFFFnGsjOB4cJV6ZeZA388FBlFvylAwvpIjTtvwXweGORKobpvP3L03LZJsn2-pN16gjqLP8PsgXmZp_zk2yGMuXvEEt=w1280"
+              src="/images/image42.png"
               alt="Style Guide"
               width={1280}
               height={720}
@@ -676,7 +676,7 @@ export default function SushiTime() {
             className="w-full"
           >
             <Image
-              src="https://lh3.googleusercontent.com/sitesv/AAzXCkcqMhaNPis-pcXJw-l6PWuCHv8YjbS2cKBqPE5bgTpNowy2W9Pa0wLw613Lk-_96bvRTe6njTeuB66fRR05SjQerZRIb7t63mA0bl7NPg6ZdwmT6z39ylTdTftb3YY5CwYrdPE9jof0atLQx8I_LyWQAOSFBxkAmAAL7jaPy7jkyK5g5pmkbaSw=w16383"
+              src="/images/image43.png"
               alt="Style Guide Carousel 1"
               width={1280}
               height={1024}
