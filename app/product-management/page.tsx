@@ -2,210 +2,19 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import { URLS, getEmailLink } from "@/constants/urls";
+import { Header } from "@/components/shared/Header";
+import { Footer } from "@/components/shared/Footer";
+import { Section } from "@/components/shared/Section";
+import { useScrollHeader } from "@/hooks/useScrollHeader";
 
-// Reusable Section component with scroll-triggered animation
-const Section = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => {
-  return (
-    <motion.section
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
-      className={className}
-    >
-      {children}
-    </motion.section>
-  );
-};
-
-export default function ProductManagement() {
-  const [isScrollingDown, setIsScrollingDown] = useState(false);
-  const lastScrollY = useRef(0);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    let ticking = false;
-    
-    const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          const currentScrollY = window.scrollY;
-          const previousScrollY = lastScrollY.current;
-          
-          // Always show menu at the top of the page
-          if (currentScrollY <= 10) {
-            setIsScrollingDown(false);
-            lastScrollY.current = currentScrollY;
-            ticking = false;
-            return;
-          }
-          
-          // Scrolling up - show menu immediately
-          if (currentScrollY < previousScrollY) {
-            setIsScrollingDown(false);
-            lastScrollY.current = currentScrollY;
-            ticking = false;
-            return;
-          }
-          
-          // Scrolling down and past 100px - hide menu
-          if (currentScrollY > previousScrollY && currentScrollY > 100) {
-            setIsScrollingDown(true);
-          }
-          
-          lastScrollY.current = currentScrollY;
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+const ProductManagement = (): JSX.Element => {
+  const isScrollingDown = useScrollHeader();
 
   return (
-    <main className="min-h-screen bg-white scroll-smooth overflow-x-hidden">
-      {/* Header */}
-      <header
-        className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200 shadow-sm transition-transform duration-300"
-        style={{
-          transform: isScrollingDown ? "translateY(-100%)" : "translateY(0)",
-          willChange: "transform",
-        }}
-      >
-        <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex items-center justify-between">
-            <Link href="/homepage" className="flex items-center">
-              <Image
-                src="/images/image1.png"
-                alt="Alessandra Krick Logo"
-                width={120}
-                height={40}
-                className="h-8 w-auto"
-              />
-            </Link>
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center gap-6">
-              <Link
-                href="/homepage"
-                className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200"
-              >
-                Home
-              </Link>
-              <Link
-                href="/about"
-                className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200"
-              >
-                About
-              </Link>
-              <Link
-                href="/product-management"
-                className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium"
-              >
-                Product Management
-              </Link>
-              <Link
-                href="/graphic-design"
-                className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200"
-              >
-                Graphic Design
-              </Link>
-              <Link
-                href="/sushitime"
-                className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200"
-              >
-                SushiTime
-              </Link>
-              <a
-                href="https://drive.google.com/file/d/1C5lVcUF5hkwpRnfnHAN0YH4z2duQ0c4p/view"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200"
-              >
-                Community
-              </a>
-            </div>
-
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-gray-100 transition-colors duration-200"
-              aria-label="Toggle menu"
-            >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                {isMobileMenuOpen ? (
-                  <path d="M6 18L18 6M6 6l12 12" />
-                ) : (
-                  <path d="M4 6h16M4 12h16M4 18h16" />
-                )}
-              </svg>
-            </button>
-          </div>
-
-          {/* Mobile Menu */}
-          {isMobileMenuOpen && (
-            <div className="md:hidden mt-4 pb-4 border-t border-gray-200">
-              <div className="flex flex-col gap-4 pt-4">
-                <Link
-                  href="/homepage"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200 py-2"
-                >
-                  Home
-                </Link>
-                <Link
-                  href="/about"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200 py-2"
-                >
-                  About
-                </Link>
-                <Link
-                  href="/product-management"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium py-2"
-                >
-                  Product Management
-                </Link>
-                <Link
-                  href="/graphic-design"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200 py-2"
-                >
-                  Graphic Design
-                </Link>
-                <Link
-                  href="/sushitime"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200 py-2"
-                >
-                  SushiTime
-                </Link>
-                <a
-                  href="https://drive.google.com/file/d/1C5lVcUF5hkwpRnfnHAN0YH4z2duQ0c4p/view"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200 py-2"
-                >
-                  Community
-                </a>
-              </div>
-            </div>
-          )}
-        </nav>
-      </header>
+    <main className="min-h-screen bg-white scroll-smooth overflow-x-hidden" data-testid="product-management-page">
+      <Header isScrollingDown={isScrollingDown} currentPage="product-management" />
 
       {/* Hero Section */}
       <Section className="my-24 px-4 sm:px-6 lg:px-8 bg-white py-12">
@@ -226,14 +35,14 @@ export default function ProductManagement() {
             <p className="pt-4">
               📍 Based in Dubai |{" "}
               <a
-                href="mailto:akrickbusiness@gmail.com"
+                href={getEmailLink(URLS.social.emailBusiness)}
                 className="text-blue-600 hover:text-blue-700 underline font-medium transition-colors duration-200"
               >
                 Email
               </a>{" "}
               |{" "}
               <a
-                href="https://linkedin.com/in/alessandrakrick"
+                href={URLS.social.linkedinShort}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-600 hover:text-blue-700 underline font-medium transition-colors duration-200"
@@ -283,7 +92,7 @@ export default function ProductManagement() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <div className="relative w-full rounded-lg overflow-hidden shadow-lg bg-gray-100 group cursor-pointer">
               <a
-                href="https://kidjo.tv"
+                href={URLS.productManagement.kidjo}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block"
@@ -494,7 +303,7 @@ export default function ProductManagement() {
             <div className="pt-4 space-y-3">
               <p>
                 <a
-                  href="https://drive.google.com/file/d/1C5lVcUF5hkwpRnfnHAN0YH4z2duQ0c4p/view"
+                  href={URLS.community}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-600 hover:text-blue-700 underline font-medium transition-colors duration-200"
@@ -506,7 +315,7 @@ export default function ProductManagement() {
               </p>
               <p>
                 <a
-                  href="https://www.alessandrakrick.com/sushitime"
+                  href={URLS.sushitimePortfolio}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-600 hover:text-blue-700 underline font-medium transition-colors duration-200"
@@ -602,7 +411,7 @@ export default function ProductManagement() {
               <div className="text-center space-y-1">
                 <p className="text-gray-800 text-sm md:text-base">
                   <a
-                    href="https://docs.google.com/spreadsheets/d/1Obi_cOczZAoxdOtFGsu8PmoCawwZDtfF816jK-3tkpA/edit?usp=sharing"
+                    href={URLS.productManagement.competitiveAnalysis1}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-blue-600 hover:text-blue-700 underline font-medium transition-colors duration-200"
@@ -636,7 +445,7 @@ export default function ProductManagement() {
               <div className="text-center space-y-1">
                 <p className="text-gray-800 text-sm md:text-base">
                   <a
-                    href="https://docs.google.com/spreadsheets/d/1VwMu0K5-sAh6854EKRO0cIADZChZFhO62YVe9xzevpw/edit?usp=sharing"
+                    href={URLS.productManagement.competitiveAnalysis2}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-blue-600 hover:text-blue-700 underline font-medium transition-colors duration-200"
@@ -880,7 +689,7 @@ export default function ProductManagement() {
             <li className="flex items-start group hover:bg-gray-50 rounded-lg p-2 sm:-mx-3 transition-colors duration-200">
               <span className="text-blue-600 mr-3 mt-1 font-semibold">•</span>
               <a
-                href="https://bcert.me/bc/html/show-badge.html?b=nnlrtfdl"
+                href={URLS.certifications.cspo}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-600 hover:text-blue-700 underline font-medium transition-colors duration-200 flex-1"
@@ -902,7 +711,7 @@ export default function ProductManagement() {
             <li className="flex items-start group hover:bg-gray-50 rounded-lg p-2 sm:-mx-3 transition-colors duration-200">
               <span className="text-blue-600 mr-3 mt-1 font-semibold">•</span>
               <a
-                href="https://www.coursera.org/account/accomplishments/professional-cert/FDJ5CWJATB55"
+                href={URLS.certifications.googleUXDesign}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-600 hover:text-blue-700 underline font-medium transition-colors duration-200 flex-1"
@@ -913,7 +722,7 @@ export default function ProductManagement() {
             <li className="flex items-start group hover:bg-gray-50 rounded-lg p-2 sm:-mx-3 transition-colors duration-200">
               <span className="text-blue-600 mr-3 mt-1 font-semibold">•</span>
               <a
-                href="https://www.coursera.org/account/accomplishments/verify/HAJHW94EHNNT"
+                href={URLS.certifications.uxDesignProcess}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-600 hover:text-blue-700 underline font-medium transition-colors duration-200 flex-1"
@@ -968,7 +777,7 @@ export default function ProductManagement() {
             <li className="flex items-start group hover:bg-gray-50 rounded-lg p-2 sm:-mx-3 transition-colors duration-200">
               <span className="text-blue-600 mr-3 mt-1 font-semibold">•</span>
               <a
-                href="https://www.credly.com/users/alessandra-krick/badges#credly"
+                href={URLS.certifications.awsBadges}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-600 hover:text-blue-700 underline font-medium transition-colors duration-200 flex-1"
@@ -1234,13 +1043,13 @@ export default function ProductManagement() {
           </h2>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
             <a
-              href="mailto:akrickbusiness@gmail.com"
+              href={getEmailLink(URLS.social.emailBusiness)}
               className="inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-200 text-sm md:text-base"
             >
               📧 Email Me
             </a>
             <a
-              href="https://linkedin.com/in/alessandrakrick"
+              href={URLS.social.linkedinShort}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-6 py-3 bg-white text-blue-600 font-semibold rounded-lg border-2 border-blue-600 hover:bg-blue-50 transition-colors duration-200 text-sm md:text-base"
@@ -1270,80 +1079,9 @@ export default function ProductManagement() {
       </Section>
 
       {/* Footer */}
-      <footer className="bg-gray-50 border-t border-gray-200 py-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col gap-8">
-            {/* Navigation Links */}
-            <div className="flex flex-wrap justify-center gap-6 text-sm">
-              <Link
-                href="/homepage"
-                className="text-gray-700 hover:text-blue-600 transition-colors duration-200"
-              >
-                Home
-              </Link>
-              <Link
-                href="/about"
-                className="text-gray-700 hover:text-blue-600 transition-colors duration-200"
-              >
-                About
-              </Link>
-              <Link
-                href="/product-management"
-                className="text-gray-700 hover:text-blue-600 transition-colors duration-200"
-              >
-                Product Management
-              </Link>
-              <Link
-                href="/graphic-design"
-                className="text-gray-700 hover:text-blue-600 transition-colors duration-200"
-              >
-                Graphic Design
-              </Link>
-              <Link
-                href="/sushitime"
-                className="text-gray-700 hover:text-blue-600 transition-colors duration-200"
-              >
-                SushiTime
-              </Link>
-            </div>
-            
-            {/* Copyright and Social Links */}
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-              <div className="text-sm text-gray-600">
-                © {new Date().getFullYear()} Alessandra Krick. All rights reserved.
-              </div>
-              <div className="flex items-center gap-6">
-                <a
-                  href="https://www.linkedin.com/in/alessandrakrick/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="transition-transform hover:scale-110 duration-300"
-                >
-                  <Image
-                    src="/images/linkedin-icon.png"
-                    alt="LinkedIn"
-                    width={40}
-                    height={40}
-                    className="rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
-                  />
-                </a>
-                <a
-                  href="mailto:akrick.business@gmail.com"
-                  className="transition-transform hover:scale-110 duration-300"
-                >
-                  <Image
-                    src="/images/email-icon.png"
-                    alt="Email"
-                    width={40}
-                    height={40}
-                    className="rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
-                  />
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </main>
   );
-}
+};
+
+export default ProductManagement;

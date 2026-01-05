@@ -1,27 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-
-// Reusable Section component with scroll-triggered animation
-const Section = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => {
-  const [isVisible, setIsVisible] = useState(true); // Start visible as fallback
-  
-  return (
-    <motion.section
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
-      className={className}
-      onAnimationStart={() => setIsVisible(true)}
-    >
-      {children}
-    </motion.section>
-  );
-};
+import { URLS, getEmailLink } from "@/constants/urls";
+import { useState, useEffect } from "react";
+import { Header } from "@/components/shared/Header";
+import { Footer } from "@/components/shared/Footer";
+import { Section } from "@/components/shared/Section";
+import { useScrollHeader } from "@/hooks/useScrollHeader";
 
 // Counting number component
 const CountUp = ({ end, suffix = "", duration = 2, id }: { end: number; suffix?: string; duration?: number; id: string }) => {
@@ -132,193 +119,12 @@ const CountUp = ({ end, suffix = "", duration = 2, id }: { end: number; suffix?:
 //   );
 // };
 
-export default function Home() {
-  const [isScrollingDown, setIsScrollingDown] = useState(false);
-  const lastScrollY = useRef(0);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    let ticking = false;
-    
-    const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          const currentScrollY = window.scrollY;
-          const previousScrollY = lastScrollY.current;
-          
-          // Always show menu at the top of the page
-          if (currentScrollY <= 10) {
-            setIsScrollingDown(false);
-            lastScrollY.current = currentScrollY;
-            ticking = false;
-            return;
-          }
-          
-          // Scrolling up - show menu immediately
-          if (currentScrollY < previousScrollY) {
-            setIsScrollingDown(false);
-            lastScrollY.current = currentScrollY;
-            ticking = false;
-            return;
-          }
-          
-          // Scrolling down and past 100px - hide menu
-          if (currentScrollY > previousScrollY && currentScrollY > 100) {
-            setIsScrollingDown(true);
-          }
-          
-          lastScrollY.current = currentScrollY;
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+const Home = (): JSX.Element => {
+  const isScrollingDown = useScrollHeader();
 
   return (
-    <main className="min-h-screen bg-white scroll-smooth overflow-x-hidden">
-      {/* Header */}
-      <header
-        className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200 shadow-sm transition-transform duration-300"
-        style={{
-          transform: isScrollingDown ? "translateY(-100%)" : "translateY(0)",
-          willChange: "transform",
-        }}
-      >
-        <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex items-center justify-between">
-            <Link href="/homepage" className="flex items-center">
-              <Image
-                src="/images/image1.png"
-                alt="Alessandra Krick Logo"
-                width={120}
-                height={40}
-                className="h-8 w-auto"
-              />
-            </Link>
-            
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center gap-6">
-              <Link
-                href="/homepage"
-                className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium"
-              >
-                Home
-              </Link>
-              <Link
-                href="/about"
-                className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200"
-              >
-                About
-              </Link>
-              <Link
-                href="/product-management"
-                className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200"
-              >
-                Product Management
-              </Link>
-              <Link
-                href="/graphic-design"
-                className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200"
-              >
-                Graphic Design
-              </Link>
-              <Link
-                href="/sushitime"
-                className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200"
-              >
-                SushiTime
-              </Link>
-              <a
-                href="https://drive.google.com/file/d/1C5lVcUF5hkwpRnfnHAN0YH4z2duQ0c4p/view"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200"
-              >
-                Community
-              </a>
-            </div>
-
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-gray-100 transition-colors duration-200"
-              aria-label="Toggle menu"
-            >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                {isMobileMenuOpen ? (
-                  <path d="M6 18L18 6M6 6l12 12" />
-                ) : (
-                  <path d="M4 6h16M4 12h16M4 18h16" />
-                )}
-              </svg>
-            </button>
-          </div>
-
-          {/* Mobile Menu */}
-          {isMobileMenuOpen && (
-            <div className="md:hidden mt-4 pb-4 border-t border-gray-200">
-              <div className="flex flex-col gap-4 pt-4">
-                <Link
-                  href="/homepage"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium py-2"
-                >
-                  Home
-                </Link>
-                <Link
-                  href="/about"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200 py-2"
-                >
-                  About
-                </Link>
-                <Link
-                  href="/product-management"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200 py-2"
-                >
-                  Product Management
-                </Link>
-                <Link
-                  href="/graphic-design"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200 py-2"
-                >
-                  Graphic Design
-                </Link>
-                <Link
-                  href="/sushitime"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200 py-2"
-                >
-                  SushiTime
-                </Link>
-                <a
-                  href="https://drive.google.com/file/d/1C5lVcUF5hkwpRnfnHAN0YH4z2duQ0c4p/view"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200 py-2"
-                >
-                  Community
-                </a>
-              </div>
-            </div>
-          )}
-        </nav>
-      </header>
+    <main className="min-h-screen bg-white scroll-smooth overflow-x-hidden" data-testid="homepage">
+      <Header isScrollingDown={isScrollingDown} currentPage="homepage" />
 
       {/* Hero Section */}
       <Section className="my-24 md:my-32 px-4 sm:px-6 lg:px-8 bg-white">
@@ -547,7 +353,7 @@ export default function Home() {
               transition={{ duration: 0.5 }}
               className="group"
             >
-              <Link href="/product-management" className="block">
+              <Link href={URLS.routes.productManagement} className="block">
                 <div className="relative w-full h-64 rounded-lg overflow-hidden shadow-lg bg-gray-100 mb-4">
                   <motion.div
                     initial={{ opacity: 0 }}
@@ -579,7 +385,7 @@ export default function Home() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="group"
             >
-              <Link href="/sushitime" className="block">
+              <Link href={URLS.routes.sushitime} className="block">
                 <div className="relative w-full h-64 rounded-lg overflow-hidden shadow-lg bg-gray-100 mb-4">
                   <motion.div
                     initial={{ opacity: 0 }}
@@ -611,7 +417,7 @@ export default function Home() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="group"
             >
-              <a href="https://drive.google.com/file/d/1C5lVcUF5hkwpRnfnHAN0YH4z2duQ0c4p/view" target="_blank" rel="noopener noreferrer" className="block">
+              <a href={URLS.community} target="_blank" rel="noopener noreferrer" className="block">
                 <div className="relative w-full h-64 rounded-lg overflow-hidden shadow-lg bg-gray-100 mb-4">
                   <motion.div
                     initial={{ opacity: 0 }}
@@ -643,7 +449,7 @@ export default function Home() {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="group"
             >
-              <a href="https://www.alessandrakrick.com/graphic-design" target="_blank" rel="noopener noreferrer" className="block">
+              <a href={URLS.graphicDesignPortfolio} target="_blank" rel="noopener noreferrer" className="block">
                 <div className="relative w-full h-64 rounded-lg overflow-hidden shadow-lg bg-gray-100 mb-4">
                   <motion.div
                     initial={{ opacity: 0 }}
@@ -678,13 +484,13 @@ export default function Home() {
           </h2>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a
-              href="mailto:akrickbusiness@gmail.com"
+              href={getEmailLink(URLS.social.emailBusiness)}
               className="inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-200 text-sm md:text-base"
             >
               📧 Email Me
             </a>
             <a
-              href="https://linkedin.com/in/alessandrakrick"
+              href={URLS.social.linkedinShort}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-6 py-3 bg-white text-blue-600 font-semibold rounded-lg border-2 border-blue-600 hover:bg-blue-50 transition-colors duration-200 text-sm md:text-base"
@@ -695,81 +501,9 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* Footer */}
-      <footer className="bg-gray-50 border-t border-gray-200 py-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col gap-8">
-            {/* Navigation Links */}
-            <div className="flex flex-wrap justify-center gap-6 text-sm">
-              <Link
-                href="/homepage"
-                className="text-gray-700 hover:text-blue-600 transition-colors duration-200"
-              >
-                Home
-              </Link>
-              <Link
-                href="/about"
-                className="text-gray-700 hover:text-blue-600 transition-colors duration-200"
-              >
-                About
-              </Link>
-              <Link
-                href="/product-management"
-                className="text-gray-700 hover:text-blue-600 transition-colors duration-200"
-              >
-                Product Management
-              </Link>
-              <Link
-                href="/graphic-design"
-                className="text-gray-700 hover:text-blue-600 transition-colors duration-200"
-              >
-                Graphic Design
-              </Link>
-              <Link
-                href="/sushitime"
-                className="text-gray-700 hover:text-blue-600 transition-colors duration-200"
-              >
-                SushiTime
-              </Link>
-            </div>
-            
-            {/* Copyright and Social Links */}
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-              <div className="text-sm text-gray-600">
-                © {new Date().getFullYear()} Alessandra Krick. All rights reserved.
-              </div>
-              <div className="flex items-center gap-6">
-                <a
-                  href="https://www.linkedin.com/in/alessandrakrick/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="transition-transform hover:scale-110 duration-300"
-                >
-                  <Image
-                    src="/images/linkedin-icon.png"
-                    alt="LinkedIn"
-                    width={40}
-                    height={40}
-                    className="rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
-                  />
-                </a>
-                <a
-                  href="mailto:akrick.business@gmail.com"
-                  className="transition-transform hover:scale-110 duration-300"
-                >
-                  <Image
-                    src="/images/email-icon.png"
-                    alt="Email"
-                    width={40}
-                    height={40}
-                    className="rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
-                  />
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </main>
   );
-}
+};
+
+export default Home;

@@ -1,808 +1,127 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useState, useEffect, useRef } from "react";
-import Link from "next/link";
-import Image from "next/image";
+import { Header } from "@/components/shared/Header";
+import { Footer } from "@/components/shared/Footer";
+import { HeroSection } from "@/components/sushitime/HeroSection";
+import { ProjectInfoSection } from "@/components/sushitime/ProjectInfoSection";
+import { ProblemGoalSection } from "@/components/sushitime/ProblemGoalSection";
+import { KickoffSection } from "@/components/sushitime/KickoffSection";
+import { ImageSection } from "@/components/sushitime/ImageSection";
+import { PaperWireframesSection } from "@/components/sushitime/PaperWireframesSection";
+import { WireflowSection } from "@/components/sushitime/WireflowSection";
+import { ChallengeSection } from "@/components/sushitime/ChallengeSection";
+import { TakeawaysSection } from "@/components/sushitime/TakeawaysSection";
+import { ProcessDeckSection } from "@/components/sushitime/ProcessDeckSection";
+import { useScrollHeader } from "@/hooks/useScrollHeader";
 
-// Reusable Section component with scroll-triggered animation
-const Section = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => {
+const SushiTime = (): JSX.Element => {
+  const isScrollingDown = useScrollHeader();
+
   return (
-    <motion.section
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
-      className={className}
-    >
-      {children}
-    </motion.section>
+    <main className="min-h-screen bg-white scroll-smooth overflow-x-hidden" data-testid="sushitime-page">
+      <Header isScrollingDown={isScrollingDown} currentPage="sushitime" />
+
+      <HeroSection />
+
+      <ProjectInfoSection />
+
+      <ProblemGoalSection />
+
+      <KickoffSection />
+
+      <ImageSection
+        title="Meet the users"
+        imageSrc="/images/image34.png"
+        imageAlt="User personas"
+        maxHeight="max-h-[400px]"
+        bgColor="gray"
+      />
+
+      <ImageSection
+        title="Information Architecture"
+        imageSrc="/images/image35.png"
+        imageAlt="Information Architecture"
+        maxHeight="max-h-[700px]"
+        bgColor="white"
+      />
+
+      <PaperWireframesSection />
+
+      <WireflowSection />
+
+      <ChallengeSection
+        challengeNumber={1}
+        title="A Familiar Experience"
+        description={
+          <>
+            Application stores are fulfilled with ordering apps. I want to make it easy and simple for a person to reserve the table and food. Therefore, it is maintained a similar flow as restaurant-related applications basing on <em>Gestalt&apos;s similarity principles</em>. The users won&apos;t waste time to learn something completely new.
+          </>
+        }
+        imageSrc="/images/image27.png"
+        imageAlt="Challenge 1 - A Familiar Experience"
+        bgColor="gray"
+      />
+
+      <ChallengeSection
+        challengeNumber={2}
+        title='"Where should I eat today?"'
+        description="The user can explore different restaurants by checking their menus in advance. Rating is also provided based on other users's experiences. Features such as proximity and best offers can be developed as well."
+        imageSrc="/images/image28.png"
+        imageAlt="Challenge 2 - Where should I eat today"
+        bgColor="white"
+      />
+
+      <ChallengeSection
+        challengeNumber={3}
+        title="Connecting Friends"
+        description={
+          <>
+            <p className="mb-6">Users can invite friends for a Sushi Party on the checkout. Each person can add their own order. Once everyone is ready, the party leader can checkout.</p>
+            <p>Less fuzzle. More fun.</p>
+          </>
+        }
+        imageSrc="/images/image29.png"
+        imageAlt="Challenge 3 - Connecting Friends"
+        bgColor="gray"
+      />
+
+      <ChallengeSection
+        challengeNumber={4}
+        title="Financial Wise for Restaurants"
+        description={
+          <>
+            <p className="mb-6">If items are added to the cart, it is mandatory for the user to pay in advance. Customer didn&apos;t show up? The restaurant won&apos;t have a financial loss.</p>
+            <p>Restaurant owners can also plan with more certainty the amount of ingredients to prepare for the day.</p>
+          </>
+        }
+        imageSrc="/images/image30.png"
+        imageAlt="Challenge 4 - Financial Wise for Restaurants"
+        bgColor="white"
+      />
+
+      <ImageSection
+        title="Style Guide"
+        imageSrc="/images/image42.png"
+        imageAlt="Style Guide"
+        maxHeight="max-h-[700px]"
+        bgColor="gray"
+      />
+
+      <ImageSection
+        title=""
+        imageSrc="/images/image43.png"
+        imageAlt="Style Guide Carousel 1"
+        maxHeight="max-h-[400px]"
+        bgColor="white"
+      />
+
+      <TakeawaysSection />
+
+      <ProcessDeckSection />
+
+      <Footer />
+    </main>
   );
 };
 
-export default function SushiTime() {
-  const [isScrollingDown, setIsScrollingDown] = useState(false);
-  const lastScrollY = useRef(0);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    let ticking = false;
-    
-    const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          const currentScrollY = window.scrollY;
-          const previousScrollY = lastScrollY.current;
-          
-          // Always show menu at the top of the page
-          if (currentScrollY <= 10) {
-            setIsScrollingDown(false);
-            lastScrollY.current = currentScrollY;
-            ticking = false;
-            return;
-          }
-          
-          // Scrolling up - show menu immediately
-          if (currentScrollY < previousScrollY) {
-            setIsScrollingDown(false);
-            lastScrollY.current = currentScrollY;
-            ticking = false;
-            return;
-          }
-          
-          // Scrolling down and past 100px - hide menu
-          if (currentScrollY > previousScrollY && currentScrollY > 100) {
-            setIsScrollingDown(true);
-          }
-          
-          lastScrollY.current = currentScrollY;
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  return (
-    <main className="min-h-screen bg-white scroll-smooth overflow-x-hidden">
-      {/* Header */}
-      <header
-        className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200 shadow-sm transition-transform duration-300"
-        style={{
-          transform: isScrollingDown ? "translateY(-100%)" : "translateY(0)",
-          willChange: "transform",
-        }}
-      >
-        <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex items-center justify-between">
-            <Link href="/homepage" className="flex items-center">
-              <Image
-                src="/images/image1.png"
-                alt="Alessandra Krick Logo"
-                width={120}
-                height={40}
-                className="h-8 w-auto"
-              />
-            </Link>
-            
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center gap-6">
-              <Link
-                href="/homepage"
-                className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200"
-              >
-                Home
-              </Link>
-              <Link
-                href="/about"
-                className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200"
-              >
-                About
-              </Link>
-              <Link
-                href="/product-management"
-                className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200"
-              >
-                Product Management
-              </Link>
-              <Link
-                href="/graphic-design"
-                className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200"
-              >
-                Graphic Design
-              </Link>
-              <Link
-                href="/sushitime"
-                className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium"
-              >
-                SushiTime
-              </Link>
-              <a
-                href="https://drive.google.com/file/d/1C5lVcUF5hkwpRnfnHAN0YH4z2duQ0c4p/view"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200"
-              >
-                Community
-              </a>
-            </div>
-            
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-gray-100 transition-colors duration-200"
-              aria-label="Toggle menu"
-            >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                {isMobileMenuOpen ? (
-                  <path d="M6 18L18 6M6 6l12 12" />
-                ) : (
-                  <path d="M4 6h16M4 12h16M4 18h16" />
-                )}
-              </svg>
-            </button>
-          </div>
-          
-          {/* Mobile Menu Dropdown */}
-          {isMobileMenuOpen && (
-            <div className="md:hidden flex flex-col items-center gap-4 mt-4 py-2 border-t border-gray-200">
-              <Link
-                href="/homepage"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200 py-2"
-              >
-                Home
-              </Link>
-              <Link
-                href="/about"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200 py-2"
-              >
-                About
-              </Link>
-              <Link
-                href="/product-management"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200 py-2"
-              >
-                Product Management
-              </Link>
-              <Link
-                href="/graphic-design"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200 py-2"
-              >
-                Graphic Design
-              </Link>
-              <Link
-                href="/sushitime"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium py-2"
-              >
-                SushiTime
-              </Link>
-              <a
-                href="https://drive.google.com/file/d/1C5lVcUF5hkwpRnfnHAN0YH4z2duQ0c4p/view"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="text-sm text-gray-700 hover:text-blue-600 transition-colors duration-200 py-2"
-              >
-                Community
-              </a>
-            </div>
-          )}
-        </nav>
-      </header>
-
-      {/* Hero Section with Background Image */}
-      <motion.section 
-        className="relative w-full h-96 md:h-[500px] bg-cover bg-center" 
-        style={{ backgroundImage: "url(/images/image31.png)" }}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-      >
-        <div className="absolute inset-0 bg-black/20"></div>
-      </motion.section>
-
-      {/* Project Info Section */}
-      <Section className="mt-4 mb-16 px-4 sm:px-6 lg:px-8 bg-white py-12">
-        <div className="max-w-5xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8 text-center items-center">
-            <div>
-              <p className="text-base md:text-lg font-bold text-gray-900 mb-2">Project:</p>
-              <p className="text-base md:text-lg text-gray-700">SushiTime</p>
-            </div>
-            <div>
-              <p className="text-base md:text-lg font-bold text-gray-900 mb-2">Role:</p>
-              <p className="text-base md:text-lg text-gray-700">Concept, Research, Visuals</p>
-            </div>
-            <div>
-              <p className="text-base md:text-lg font-bold text-gray-900 mb-2">Duration:</p>
-              <p className="text-base md:text-lg text-gray-700">June - Oct 2022</p>
-            </div>
-            <div>
-              <a
-                href="https://drive.google.com/file/d/1wB24f9fhkcqpviWdNsyiiSs7UfYuGySi/view?usp=sharing"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block px-4 py-2 text-sm bg-white text-gray-900 font-semibold rounded-lg border-2 border-gray-300 hover:border-gray-400 transition-colors duration-200"
-              >
-                PROCESS DECK →
-              </a>
-            </div>
-          </div>
-        </div>
-      </Section>
-
-      {/* The Problem & Goal Section - Two Column */}
-      <Section className="my-16 px-4 sm:px-6 lg:px-8 bg-gray-50/50 py-12">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mb-12">
-            {/* The Problem */}
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight">The problem</h2>
-              <ul className="space-y-3 text-gray-700 text-sm md:text-base leading-relaxed list-disc list-inside">
-                <li>Long wait in sushi places;</li>
-                <li>Low clarity on the ingredients&apos; quantities for the day, leading to waste.</li>
-              </ul>
-            </div>
-            {/* The Goal */}
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight">The goal</h2>
-              <ul className="space-y-3 text-gray-700 text-sm md:text-base leading-relaxed list-disc list-inside">
-                <li>Improve sushi lovers&apos; experiences in their favorite sushi places;</li>
-                <li>Decrease the amount of ingredients gone to waste;</li>
-                <li>Less time waiting, more time having fun.</li>
-              </ul>
-            </div>
-          </div>
-          <div className="max-w-4xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-            >
-              <Image
-                src="/images/image32.png"
-                alt="SushiTime project"
-                width={1280}
-                height={720}
-                className="w-full h-auto object-contain max-h-[500px]"
-                unoptimized
-              />
-            </motion.div>
-          </div>
-        </div>
-      </Section>
-
-      {/* Kick-off Section - Two Column */}
-      <Section className="my-16 px-4 sm:px-6 lg:px-8 bg-white py-12">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-start">
-            {/* Text Content */}
-            <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">Kick-off</h2>
-              <p className="text-gray-700 mb-6 text-base md:text-lg leading-relaxed">
-                For initiating the project, I have started with an UX Research to validate the Project&apos;s goals and discover other pains and needs users might have to enrich the product.
-              </p>
-              <p className="text-gray-700 mb-6 text-base md:text-lg leading-relaxed">
-                After the research, personas were drawn. To start the ideation process, I runned a <em>competitive analysis</em> with direct and indirect competitors.
-              </p>
-              <ul className="space-y-3 text-gray-700 text-base md:text-lg leading-relaxed list-disc list-inside ml-4">
-                <li>Initial questions</li>
-                <li>
-                  <a
-                    href="https://docs.google.com/spreadsheets/d/1VtVRUdrxZjK7czGwlnc7Nr0siXia-oQz/edit?usp=sharing&ouid=117693731879484145211&rtpof=true&sd=true"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-600 hover:text-blue-800 underline"
-                  >
-                    Competitive analysis →
-                  </a>
-                </li>
-              </ul>
-            </div>
-            {/* Image */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-            >
-              <Image
-                src="/images/image33.png"
-                alt="Kick-off research"
-                width={1280}
-                height={720}
-                className="w-full h-auto object-contain"
-                unoptimized
-              />
-            </motion.div>
-          </div>
-        </div>
-      </Section>
-
-      {/* Meet the Users Section */}
-      <Section className="my-16 px-4 sm:px-6 lg:px-8 bg-gray-50/50 py-12">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 text-center leading-tight">Meet the users</h2>
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-          >
-            <Image
-              src="/images/image34.png"
-              alt="User personas"
-              width={1280}
-              height={720}
-              className="w-full h-auto object-contain max-h-[400px]"
-              unoptimized
-            />
-          </motion.div>
-        </div>
-      </Section>
-
-      {/* Information Architecture Section */}
-      <Section className="my-16 px-4 sm:px-6 lg:px-8 bg-white py-12">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 text-center leading-tight">Information Architecture</h2>
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-          >
-            <Image
-              src="/images/image35.png"
-              alt="Information Architecture"
-              width={1280}
-              height={720}
-              className="w-full h-auto object-contain max-h-[700px]"
-              unoptimized
-            />
-          </motion.div>
-        </div>
-      </Section>
-
-      {/* Paper Wireframes Section */}
-      <Section className="my-16 px-4 sm:px-6 lg:px-8 bg-gray-50/50 py-12">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 text-center leading-tight">Paper Wireframes</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-            >
-              <Image
-                src="/images/image36.png"
-                alt="Paper Wireframes 1"
-                width={1280}
-                height={720}
-                className="w-full h-auto object-contain max-h-[250px]"
-                unoptimized
-              />
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-            >
-              <Image
-                src="/images/image37.png"
-                alt="Paper Wireframes 2"
-                width={1280}
-                height={720}
-                className="w-full h-auto object-contain max-h-[250px]"
-                unoptimized
-              />
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-            >
-              <Image
-                src="/images/image38.png"
-                alt="Paper Wireframes 3"
-                width={1280}
-                height={720}
-                className="w-full h-auto object-contain max-h-[250px]"
-                unoptimized
-              />
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-            >
-              <Image
-                src="/images/image39.png"
-                alt="Paper Wireframes 4"
-                width={1280}
-                height={720}
-                className="w-full h-auto object-contain max-h-[250px]"
-                unoptimized
-              />
-            </motion.div>
-          </div>
-        </div>
-      </Section>
-
-      {/* Wireflow Section */}
-      <Section className="my-16 px-4 sm:px-6 lg:px-8 bg-white py-12">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 text-center leading-tight">Wireflow</h2>
-          <p className="text-gray-700 mb-6 text-base md:text-lg leading-relaxed">
-            After the competitive audit, the wireframes were created for initial usability tests with users.
-          </p>
-          <p className="text-gray-700 mb-6 text-base md:text-lg leading-relaxed">
-            Once ideas and flows were validated, I made a high-fidelity prototype and tested it once again. Iterations were made on the design to make it more user-friendly according to insights gathered on a second usability test.
-          </p>
-          <p className="text-gray-700 mb-6 text-base md:text-lg leading-relaxed">
-            <a
-              href="https://www.figma.com/proto/Bd3abeEQ3YGj9mipaPy78z/Sushi-APP?node-id=314%3A1136&scaling=scale-down&page-id=3%3A706&starting-point-node-id=314%3A1136"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-600 hover:text-blue-800 underline"
-            >
-              Check the High-Fidelity Prototype in Figma →
-            </a>
-          </p>
-          <p className="text-gray-700 text-sm md:text-base italic leading-relaxed mb-12">
-            Obs.: only the main flow was drawn.
-          </p>
-          
-          {/* Wireflow Image */}
-          <div className="mb-12">
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-            >
-              <Image
-                src="/images/image40.png"
-                alt="Wireflow"
-                width={1280}
-                height={720}
-                className="w-full h-auto object-contain max-h-[500px]"
-                unoptimized
-              />
-            </motion.div>
-          </div>
-
-          {/* High-Fidelity Prototype Image */}
-          <div>
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-            >
-              <Image
-                src="/images/image41.png"
-                alt="High-Fidelity Prototype"
-                width={1280}
-                height={720}
-                className="w-full h-auto object-contain max-h-[500px]"
-                unoptimized
-              />
-            </motion.div>
-          </div>
-        </div>
-      </Section>
-
-      {/* Challenge 1: A Familiar Experience */}
-      <Section className="my-16 px-4 sm:px-6 lg:px-8 bg-gray-50/50 py-12">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
-            <div className="px-0 md:px-4">
-              <h3 className="text-xl font-bold text-red-500 mb-2">CHALLENGE 1</h3>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">A Familiar Experience</h2>
-              <p className="text-gray-700 text-base md:text-lg leading-relaxed">
-                Application stores are fulfilled with ordering apps. I want to make it easy and simple for a person to reserve the table and food. Therefore, it is maintained a similar flow as restaurant-related applications basing on <em>Gestalt&apos;s similarity principles</em>. The users won&apos;t waste time to learn something completely new.
-              </p>
-            </div>
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              className="w-full px-0 md:px-4"
-            >
-              <Image
-                src="/images/image27.png"
-                alt="Challenge 1 - A Familiar Experience"
-                width={1280}
-                height={720}
-                className="w-full h-auto object-contain max-h-[500px]"
-                unoptimized
-              />
-            </motion.div>
-          </div>
-        </div>
-      </Section>
-
-      {/* Challenge 2: "Where should I eat today?" */}
-      <Section className="my-16 px-4 sm:px-6 lg:px-8 bg-white py-12">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
-            <div className="px-0 md:px-4">
-              <h3 className="text-xl font-bold text-red-500 mb-2">CHALLENGE 2</h3>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">&quot;Where should I eat today?&quot;</h2>
-              <p className="text-gray-700 text-base md:text-lg leading-relaxed">
-                The user can explore different restaurants by checking their menus in advance. Rating is also provided based on other users&apos;s experiences. Features such as proximity and best offers can be developed as well.
-              </p>
-            </div>
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              className="w-full px-0 md:px-4"
-            >
-              <Image
-                src="/images/image28.png"
-                alt="Challenge 2 - Where should I eat today"
-                width={1280}
-                height={720}
-                className="w-full h-auto object-contain max-h-[500px]"
-                unoptimized
-              />
-            </motion.div>
-          </div>
-        </div>
-      </Section>
-
-      {/* Challenge 3: Connecting Friends */}
-      <Section className="my-16 px-4 sm:px-6 lg:px-8 bg-gray-50/50 py-12">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
-            <div className="px-0 md:px-4">
-              <h3 className="text-xl font-bold text-red-500 mb-2">CHALLENGE 3</h3>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">Connecting Friends</h2>
-              <p className="text-gray-700 mb-6 text-base md:text-lg leading-relaxed">
-                Users can invite friends for a Sushi Party on the checkout. Each person can add their own order. Once everyone is ready, the party leader can checkout.
-              </p>
-              <p className="text-gray-700 text-base md:text-lg leading-relaxed">
-                Less fuzzle. More fun.
-              </p>
-            </div>
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              className="w-full px-0 md:px-4"
-            >
-              <Image
-                src="/images/image29.png"
-                alt="Challenge 3 - Connecting Friends"
-                width={1280}
-                height={720}
-                className="w-full h-auto object-contain max-h-[500px]"
-                unoptimized
-              />
-            </motion.div>
-          </div>
-        </div>
-      </Section>
-
-      {/* Challenge 4: Financial Wise for Restaurants */}
-      <Section className="my-16 px-4 sm:px-6 lg:px-8 bg-white py-12">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
-            <div className="px-0 md:px-4">
-              <h3 className="text-xl font-bold text-red-500 mb-2">CHALLENGE 4</h3>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">Financial Wise for Restaurants</h2>
-              <p className="text-gray-700 mb-6 text-base md:text-lg leading-relaxed">
-                If items are added to the cart, it is mandatory for the user to pay in advance. Customer didn&apos;t show up? The restaurant won&apos;t have a financial loss.
-              </p>
-              <p className="text-gray-700 text-base md:text-lg leading-relaxed">
-                Restaurant owners can also plan with more certainty the amount of ingredients to prepare for the day.
-              </p>
-            </div>
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              className="w-full px-0 md:px-4"
-            >
-              <Image
-                src="/images/image30.png"
-                alt="Challenge 4 - Financial Wise for Restaurants"
-                width={1280}
-                height={720}
-                className="w-full h-auto object-contain max-h-[500px]"
-                unoptimized
-              />
-            </motion.div>
-          </div>
-        </div>
-      </Section>
-
-      {/* Style Guide Section */}
-      <Section className="my-16 px-4 sm:px-6 lg:px-8 bg-gray-50/50 py-12">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 text-center leading-tight">Style Guide</h2>
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-          >
-            <Image
-              src="/images/image42.png"
-              alt="Style Guide"
-              width={1280}
-              height={720}
-              className="w-full h-auto object-contain max-h-[700px]"
-              unoptimized
-            />
-          </motion.div>
-        </div>
-      </Section>
-
-      {/* Style Guide Carousel */}
-      <Section className="my-16 mb-8 px-4 sm:px-6 lg:px-8 bg-white py-12">
-        <div className="max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="w-full"
-          >
-            <Image
-              src="/images/image43.png"
-              alt="Style Guide Carousel 1"
-              width={1280}
-              height={1024}
-              className="w-full h-auto object-contain max-h-[400px]"
-              unoptimized
-            />
-          </motion.div>
-        </div>
-      </Section>
-
-      {/* Takeaways Section */}
-      <Section className="my-16 px-4 sm:px-6 lg:px-8 bg-gray-50/50 py-12">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 text-center leading-tight">Takeaways</h2>
-          <p className="text-gray-700 mb-6 text-base md:text-lg leading-relaxed">
-              As a sushi lover and a person who loves trying new sushi places, this first complete UX project of mine is extremely dear to me. Designing this app has showed me that sticking to the process will bring you good results. No good application will be made without conducting proper UX Researches and Usability Tests. The more iterations with real users before handing the final design to the production team, the better!
-          </p>
-          <p className="text-gray-700 mb-6 text-base md:text-lg leading-relaxed">
-              Also, as a person who has worked as Product Manager before, I recognize how some past product problems could be solved by sticking to UX Processes basics as conducted above.
-          </p>
-          <p className="text-gray-700 text-center text-base md:text-lg leading-relaxed">
-            Thank you for reading until here!
-          </p>
-        </div>
-      </Section>
-
-      {/* Process Deck Link Section */}
-      <Section className="my-16 px-4 sm:px-6 lg:px-8 bg-gray-50/50 py-12">
-        <div className="max-w-4xl mx-auto text-center">
-          <a
-            href="https://drive.google.com/file/d/1n5BOGluz3eefZ_VTs8tcFtMbqpe6LmzT/view?usp=sharing"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block px-6 py-3 bg-white text-gray-900 font-semibold rounded-lg border-2 border-gray-300 hover:border-gray-400 transition-colors duration-200 mb-4"
-          >
-            PROCESS DECK →
-          </a>
-          <p className="text-gray-600">
-            <a
-              href="https://drive.google.com/file/d/1C5lVcUF5hkwpRnfnHAN0YH4z2duQ0c4p/view"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-600 hover:text-blue-800 underline italic"
-            >
-              or Check my next project →
-            </a>
-          </p>
-        </div>
-      </Section>
-
-      {/* Footer */}
-      <footer className="bg-gray-50 border-t border-gray-200 py-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col gap-8">
-            {/* Navigation Links */}
-            <div className="flex flex-wrap justify-center gap-6 text-sm">
-              <Link
-                href="/homepage"
-                className="text-gray-700 hover:text-blue-600 transition-colors duration-200"
-              >
-                Home
-              </Link>
-              <Link
-                href="/about"
-                className="text-gray-700 hover:text-blue-600 transition-colors duration-200"
-              >
-                About
-              </Link>
-              <Link
-                href="/product-management"
-                className="text-gray-700 hover:text-blue-600 transition-colors duration-200"
-              >
-                Product Management
-              </Link>
-              <Link
-                href="/graphic-design"
-                className="text-gray-700 hover:text-blue-600 transition-colors duration-200"
-              >
-                Graphic Design
-              </Link>
-              <Link
-                href="/sushitime"
-                className="text-gray-700 hover:text-blue-600 transition-colors duration-200"
-              >
-                SushiTime
-              </Link>
-            </div>
-            
-            {/* Copyright and Social Links */}
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-              <div className="text-sm text-gray-600">
-                © {new Date().getFullYear()} Alessandra Krick. All rights reserved.
-              </div>
-              <div className="flex items-center gap-6">
-                <a
-                  href="https://www.linkedin.com/in/alessandrakrick/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="transition-transform hover:scale-110 duration-300"
-                >
-                  <Image
-                    src="/images/linkedin-icon.png"
-                    alt="LinkedIn"
-                    width={40}
-                    height={40}
-                    className="rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
-                  />
-                </a>
-                <a
-                  href="mailto:akrick.business@gmail.com"
-                  className="transition-transform hover:scale-110 duration-300"
-                >
-                  <Image
-                    src="/images/email-icon.png"
-                    alt="Email"
-                    width={40}
-                    height={40}
-                    className="rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
-                  />
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
-    </main>
-  );
-}
-
+export default SushiTime;
