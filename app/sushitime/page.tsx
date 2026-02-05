@@ -18,7 +18,7 @@ const SushiTime = (): JSX.Element => {
   const isScrollingDown = useScrollHeader();
 
   return (
-    <main className="min-h-screen bg-white scroll-smooth overflow-x-hidden" data-testid="sushitime-page">
+    <main className="min-h-screen bg-white dark:bg-gray-900 scroll-smooth overflow-x-hidden" data-testid="sushitime-page">
       <Header isScrollingDown={isScrollingDown} currentPage="sushitime" />
 
       <HeroSection />

@@ -51,17 +51,17 @@ const GraphicDesign = (): JSX.Element => {
   ];
 
   return (
-    <main className="min-h-screen bg-white scroll-smooth overflow-x-hidden" data-testid="graphic-design-page">
+    <main className="min-h-screen bg-white dark:bg-gray-900 scroll-smooth overflow-x-hidden" data-testid="graphic-design-page">
       <Header isScrollingDown={isScrollingDown} currentPage="graphic-design" />
 
       {/* Hero Section */}
-      <Section className="my-24 px-4 sm:px-6 lg:px-8 bg-white py-12">
+      <Section className="my-24 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900 py-12">
         <div className="max-w-6xl mx-auto text-center">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 tracking-tight"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-4 tracking-tight"
           >
             Graphic Design
           </motion.h1>
@@ -69,7 +69,7 @@ const GraphicDesign = (): JSX.Element => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto"
+            className="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto"
           >
             A collection of visual design projects and branding work.
           </motion.p>
@@ -77,7 +77,7 @@ const GraphicDesign = (): JSX.Element => {
       </Section>
 
       {/* Portfolio Grid */}
-      <Section className="my-24 px-4 sm:px-6 lg:px-8 bg-white">
+      <Section className="my-24 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             {portfolioItems.map((item, index) => (
@@ -89,7 +89,7 @@ const GraphicDesign = (): JSX.Element => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="group"
               >
-                <div className={`relative w-full rounded-lg overflow-hidden shadow-lg bg-gray-100 group cursor-pointer ${item.title === "Saber Pet" ? "max-w-44 mx-auto" : ""}`}>
+                <div className={`relative w-full rounded-lg overflow-hidden shadow-lg bg-gray-100 dark:bg-gray-800 group cursor-pointer ${item.title === "Saber Pet" ? "max-w-44 mx-auto" : ""}`}>
                   <motion.div
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
@@ -106,11 +106,11 @@ const GraphicDesign = (): JSX.Element => {
                   </motion.div>
                 </div>
                 <div className="mt-3 text-center">
-                  <h3 className="text-xl font-bold text-gray-900 mb-1">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-1">
                     {item.title}
                   </h3>
                   {item.subtitle && (
-                    <p className="text-sm text-gray-600">
+                    <p className="text-sm text-gray-600 dark:text-gray-400">
                       {item.subtitle}
                     </p>
                   )}

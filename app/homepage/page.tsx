@@ -4,67 +4,10 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { URLS, getEmailLink } from "@/constants/urls";
-import { useState, useEffect } from "react";
 import { Header } from "@/components/shared/Header";
 import { Footer } from "@/components/shared/Footer";
 import { Section } from "@/components/shared/Section";
 import { useScrollHeader } from "@/hooks/useScrollHeader";
-
-// Counting number component
-const CountUp = ({ end, suffix = "", duration = 2, id }: { end: number; suffix?: string; duration?: number; id: string }) => {
-  const [count, setCount] = useState(0);
-  const [isVisible, setIsVisible] = useState(false);
-  const elementId = `count-${id}`;
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !isVisible) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.5 }
-    );
-
-    const element = document.getElementById(elementId);
-    if (element) {
-      observer.observe(element);
-    }
-
-    return () => {
-      if (element) {
-        observer.unobserve(element);
-      }
-    };
-  }, [elementId, isVisible]);
-
-  useEffect(() => {
-    if (!isVisible) return;
-
-    let startTime: number;
-    const animate = (currentTime: number) => {
-      if (!startTime) startTime = currentTime;
-      const progress = Math.min((currentTime - startTime) / (duration * 1000), 1);
-      
-      const currentCount = Math.floor(progress * end);
-      setCount(currentCount);
-
-      if (progress < 1) {
-        requestAnimationFrame(animate);
-      } else {
-        setCount(end);
-      }
-    };
-
-    requestAnimationFrame(animate);
-  }, [isVisible, end, duration]);
-
-  return (
-    <span id={elementId}>
-      {count}{suffix}
-    </span>
-  );
-};
 
 // Text scroll component for design phases (currently not used)
 // const TextScroll = ({ finalText, phases, duration = 2 }: { finalText: string; phases: string[]; duration?: number }) => {
@@ -123,11 +66,11 @@ const Home = (): JSX.Element => {
   const isScrollingDown = useScrollHeader();
 
   return (
-    <main className="min-h-screen bg-white scroll-smooth overflow-x-hidden" data-testid="homepage">
+    <main className="min-h-screen bg-white dark:bg-gray-900 scroll-smooth overflow-x-hidden" data-testid="homepage">
       <Header isScrollingDown={isScrollingDown} currentPage="homepage" />
 
       {/* Hero Section */}
-      <Section className="my-24 md:my-32 px-4 sm:px-6 lg:px-8 bg-white">
+      <Section className="my-24 md:my-32 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900">
         <div className="max-w-4xl mx-auto">
           <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
             {/* Text Content */}
@@ -136,7 +79,7 @@ const Home = (): JSX.Element => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
-                className="text-lg md:text-xl text-gray-600 mb-2 font-light"
+                className="text-lg md:text-xl text-gray-600 dark:text-gray-400 mb-2 font-light"
               >
                 👋 hello, i&apos;m
               </motion.p>
@@ -144,7 +87,7 @@ const Home = (): JSX.Element => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 tracking-tight"
+                className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-4 tracking-tight"
               >
                 Alessandra Krick
               </motion.h1>
@@ -152,23 +95,16 @@ const Home = (): JSX.Element => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-base md:text-lg text-gray-700 mb-2"
+                className="text-base md:text-lg text-gray-700 dark:text-gray-300 mb-2"
               >
-                A <span className="font-semibold text-blue-600">Product Manager</span> specialized in mobile and digital products.
+                A <span className="font-semibold text-blue-600">Senior Product Manager</span> specialized in mobile and digital products.
               </motion.p>
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                className="text-base md:text-lg text-gray-700 mb-4"
-              >
-                Senior Product Manager
-              </motion.p>
+
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="text-sm md:text-base text-gray-600"
+                className="text-sm md:text-base text-gray-600 dark:text-gray-400"
               >
                 📍 Based in Dubai
               </motion.p>
@@ -203,52 +139,8 @@ const Home = (): JSX.Element => {
         </div>
       </Section>
 
-      {/* Value Proposition */}
-      <Section className="my-16 md:my-24 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-5xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-3 text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="space-y-2"
-            >
-              <div className="text-4xl md:text-5xl font-bold text-blue-600 min-h-[3rem] md:min-h-[4rem] flex items-center justify-center">
-                <CountUp end={7} suffix="+" duration={1.2} id="years" />
-              </div>
-              <div className="text-gray-700 text-sm md:text-base lowercase">years of experience</div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="space-y-2"
-            >
-              <div className="text-4xl md:text-5xl font-bold text-blue-600 min-h-[3rem] md:min-h-[4rem] flex items-center justify-center">
-                <CountUp end={10} suffix="M+" duration={1.2} id="users" />
-              </div>
-              <div className="text-gray-700 text-sm md:text-base lowercase">users impacted</div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="space-y-2"
-            >
-              <div className="text-4xl md:text-5xl font-bold text-blue-600 min-h-[3rem] md:min-h-[4rem] flex items-center justify-center">
-                <CountUp end={200} suffix="+" duration={1.2} id="people" />
-              </div>
-              <div className="text-gray-700 text-sm md:text-base lowercase">people led</div>
-            </motion.div>
-          </div>
-        </div>
-      </Section>
-
       {/* Highlight Cards */}
-      <Section className="my-24 md:my-32 px-4 sm:px-6 lg:px-8 bg-gray-50/50 py-16">
+      <Section className="my-24 md:my-32 px-4 sm:px-6 lg:px-8 bg-gray-50/50 dark:bg-gray-800/50 py-16">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Scale & Platforms */}
@@ -257,22 +149,22 @@ const Home = (): JSX.Element => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0 }}
-              className="bg-white rounded-xl p-8 border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300"
+              className="bg-white dark:bg-gray-800 rounded-xl p-8 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-shadow duration-300"
             >
               <div className="text-4xl mb-4">🌐</div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Scale & Platforms</h3>
-              <div className="text-gray-700 text-sm md:text-base leading-relaxed space-y-3">
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Scale & Platforms</h3>
+              <div className="text-gray-700 dark:text-gray-300 text-sm md:text-base leading-relaxed space-y-3">
                 <p>
                   Multi-platform product delivery across marketplaces, ecommerce, and entertainment.
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  <span className="inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs md:text-sm font-medium">
+                  <span className="inline-block px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-xs md:text-sm font-medium">
                     Mobile, web & TV
                   </span>
-                  <span className="inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs md:text-sm font-medium">
+                  <span className="inline-block px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-xs md:text-sm font-medium">
                     Google Play, Apple App Store
                   </span>
-                  <span className="inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs md:text-sm font-medium">
+                  <span className="inline-block px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-xs md:text-sm font-medium">
                     10M+ users
                   </span>
                 </div>
@@ -285,22 +177,22 @@ const Home = (): JSX.Element => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="bg-white rounded-xl p-8 border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300"
+              className="bg-white dark:bg-gray-800 rounded-xl p-8 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-shadow duration-300"
             >
               <div className="text-4xl mb-4">🧭</div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Customer Journey Ownership</h3>
-              <div className="text-gray-700 text-sm md:text-base leading-relaxed space-y-3">
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Customer Journey Ownership</h3>
+              <div className="text-gray-700 dark:text-gray-300 text-sm md:text-base leading-relaxed space-y-3">
                 <p>
                   End-to-end ownership from problem framing to post-launch optimization.
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  <span className="inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs md:text-sm font-medium">
+                  <span className="inline-block px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-xs md:text-sm font-medium">
                     Engagement
                   </span>
-                  <span className="inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs md:text-sm font-medium">
+                  <span className="inline-block px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-xs md:text-sm font-medium">
                     Completion
                   </span>
-                  <span className="inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs md:text-sm font-medium">
+                  <span className="inline-block px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-xs md:text-sm font-medium">
                     Retention-driven
                   </span>
                 </div>
@@ -313,22 +205,22 @@ const Home = (): JSX.Element => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="bg-white rounded-xl p-8 border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300"
+              className="bg-white dark:bg-gray-800 rounded-xl p-8 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-shadow duration-300"
             >
               <div className="text-4xl mb-4">🤖</div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">AI & Data-Driven</h3>
-              <div className="text-gray-700 text-sm md:text-base leading-relaxed space-y-3">
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">AI & Data-Driven</h3>
+              <div className="text-gray-700 dark:text-gray-300 text-sm md:text-base leading-relaxed space-y-3">
                 <p>
                   AI-powered features and data-led decisions.
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  <span className="inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs md:text-sm font-medium">
+                  <span className="inline-block px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-xs md:text-sm font-medium">
                     Dashboards
                   </span>
-                  <span className="inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs md:text-sm font-medium">
+                  <span className="inline-block px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-xs md:text-sm font-medium">
                     Experimentation
                   </span>
-                  <span className="inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs md:text-sm font-medium">
+                  <span className="inline-block px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-xs md:text-sm font-medium">
                     Real-world impact
                   </span>
                 </div>
@@ -339,9 +231,9 @@ const Home = (): JSX.Element => {
       </Section>
 
       {/* Projects Section */}
-      <Section className="my-24 md:my-32 px-4 sm:px-6 lg:px-8 bg-white">
+      <Section className="my-24 md:my-32 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-12 text-center">
             Projects
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -371,7 +263,7 @@ const Home = (): JSX.Element => {
                     />
                   </motion.div>
                 </div>
-                <p className="text-center text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">
+                <p className="text-center text-lg font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                   Product Management →
                 </p>
               </Link>
@@ -403,7 +295,7 @@ const Home = (): JSX.Element => {
                     />
                   </motion.div>
                 </div>
-                <p className="text-center text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">
+                <p className="text-center text-lg font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                   SushiTime →
                 </p>
               </Link>
@@ -435,7 +327,7 @@ const Home = (): JSX.Element => {
                     />
                   </motion.div>
                 </div>
-                <p className="text-center text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">
+                <p className="text-center text-lg font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                   Community →
                 </p>
               </a>
@@ -467,7 +359,7 @@ const Home = (): JSX.Element => {
                     />
                   </motion.div>
                 </div>
-                <p className="text-center text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">
+                <p className="text-center text-lg font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                   Graphic Design Work (Logos) →
                 </p>
               </a>
@@ -477,9 +369,9 @@ const Home = (): JSX.Element => {
       </Section>
 
       {/* Call-to-Action Section */}
-      <Section className="my-24 md:my-32 px-4 sm:px-6 lg:px-8 bg-gray-50/50 py-16">
+      <Section className="my-24 md:my-32 px-4 sm:px-6 lg:px-8 bg-gray-50/50 dark:bg-gray-800/50 py-16">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-normal text-gray-900 mb-8">
+          <h2 className="text-3xl md:text-4xl font-normal text-gray-900 dark:text-white mb-8">
             Let&apos;s build something users love.
           </h2>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">

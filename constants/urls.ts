@@ -53,6 +53,7 @@ export const URLS = {
     mysql: "https://hermes.digitalinnovation.one/certificates/04C61931.pdf",
     firstStepsToCode: "https://hermes.digitalinnovation.one/certificates/EDAF1C7E.pdf",
     awsBadges: "https://www.credly.com/users/alessandra-krick/badges#credly",
+    awsCloudPractitioner: "https://www.credly.com/badges/3acb1d6f-77e9-4ee2-8e60-3e1caa090e9f/public_url",
   },
 } as const;
 

@@ -21,7 +21,7 @@ export const ChallengeSection = ({
   imageAlt,
   bgColor = "white",
 }: ChallengeSectionProps): JSX.Element => {
-  const bgClass = bgColor === "gray" ? "bg-gray-50/50" : "bg-white";
+  const bgClass = bgColor === "gray" ? "bg-gray-50/50 dark:bg-gray-800/50" : "bg-white dark:bg-gray-900";
 
   return (
     <Section className={`my-16 px-4 sm:px-6 lg:px-8 ${bgClass} py-12`} data-testid={`challenge-${challengeNumber}-section`}>
@@ -29,11 +29,11 @@ export const ChallengeSection = ({
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
           <div className="px-0 md:px-4">
             <h3 className="text-xl font-bold text-red-500 mb-2">CHALLENGE {challengeNumber}</h3>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">{title}</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">{title}</h2>
             {typeof description === "string" ? (
-              <p className="text-gray-700 text-base md:text-lg leading-relaxed">{description}</p>
+              <p className="text-gray-700 dark:text-gray-300 text-base md:text-lg leading-relaxed">{description}</p>
             ) : (
-              <div className="text-gray-700 text-base md:text-lg leading-relaxed">{description}</div>
+              <div className="text-gray-700 dark:text-gray-300 text-base md:text-lg leading-relaxed">{description}</div>
             )}
           </div>
           <motion.div

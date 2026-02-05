@@ -21,14 +21,14 @@ export const ImageSection = ({
   bgColor = "white",
   description,
 }: ImageSectionProps): JSX.Element => {
-  const bgClass = bgColor === "gray" ? "bg-gray-50/50" : "bg-white";
+  const bgClass = bgColor === "gray" ? "bg-gray-50/50 dark:bg-gray-800/50" : "bg-white dark:bg-gray-900";
 
   return (
     <Section className={`my-16 px-4 sm:px-6 lg:px-8 ${bgClass} py-12`} data-testid={`${title.toLowerCase().replace(/\s+/g, "-")}-section`}>
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 text-center leading-tight">{title}</h2>
+        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 text-center leading-tight">{title}</h2>
         {description && (
-          <p className="text-gray-700 mb-6 text-base md:text-lg leading-relaxed text-center">{description}</p>
+          <p className="text-gray-700 dark:text-gray-300 mb-6 text-base md:text-lg leading-relaxed text-center">{description}</p>
         )}
         <motion.div
           initial={{ opacity: 0 }}

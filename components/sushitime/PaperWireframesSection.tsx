@@ -13,9 +13,9 @@ const wireframeImages = [
 
 export const PaperWireframesSection = (): JSX.Element => {
   return (
-    <Section className="my-16 px-4 sm:px-6 lg:px-8 bg-gray-50/50 py-12" data-testid="paper-wireframes-section">
+    <Section className="my-16 px-4 sm:px-6 lg:px-8 bg-gray-50/50 dark:bg-gray-800/50 py-12" data-testid="paper-wireframes-section">
       <div className="max-w-5xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 text-center leading-tight">Paper Wireframes</h2>
+        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 text-center leading-tight">Paper Wireframes</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {wireframeImages.map((image, index) => (
             <motion.div
