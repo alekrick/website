@@ -79,7 +79,7 @@ const Home = (): JSX.Element => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
-                className="text-lg md:text-xl text-gray-600 dark:text-gray-400 mb-2 font-light"
+                className="text-lg md:text-xl text-gray-600 dark:text-gray-200 mb-2 font-light"
               >
                 👋 hello, i&apos;m
               </motion.p>
@@ -104,7 +104,7 @@ const Home = (): JSX.Element => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="text-sm md:text-base text-gray-600 dark:text-gray-400"
+                className="text-sm md:text-base text-gray-600 dark:text-gray-200"
               >
                 📍 Based in Dubai
               </motion.p>
