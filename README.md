@@ -1,41 +1,34 @@
-# Next.js App
+# Alessandra Krick — Portfolio
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with TypeScript, Tailwind CSS, and the App Router.
+Personal portfolio website built with Next.js, TypeScript, and Tailwind CSS.
 
-## Getting Started
+🔗 **Live site:** [website-gold-sigma-45.vercel.app](https://website-gold-sigma-45.vercel.app)
 
-First, install the dependencies:
+## Tech Stack
 
-```bash
-npm install
+- **Next.js 13+** — App Router for modern, file-based routing
+- **TypeScript** — Type-safe component and data handling
+- **Tailwind CSS** — Utility-first styling
+- **Vercel** — Deployment and hosting
+
+## Project Structure
+```
+├── app/            # Next.js App Router pages and layouts
+├── components/     # Reusable UI components
+├── constants/      # Static data and configuration
+├── hooks/          # Custom React hooks
+└── public/         # Static assets
 ```
 
-Then, run the development server:
-
+## Running Locally
 ```bash
+npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-## Features
+## License
 
-- **TypeScript**: Type-safe development
-- **Tailwind CSS**: Utility-first CSS framework
-- **App Router**: Next.js 13+ App Router for modern routing
-- **ESLint**: Code linting configured
-
-## Project Structure
-
-```
-.
-├── app/
-│   ├── layout.tsx      # Root layout component
-│   ├── page.tsx        # Home page component
-│   └── globals.css     # Global styles with Tailwind
-├── package.json        # Dependencies and scripts
-├── tsconfig.json       # TypeScript configuration
-├── tailwind.config.ts  # Tailwind CSS configuration
-└── next.config.js      # Next.js configuration
-```
+MIT © Alessandra Krick
 

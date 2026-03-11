@@ -9,6 +9,7 @@ export const URLS = {
     linkedin: "https://www.linkedin.com/in/alessandrakrick/",
     linkedinShort: "https://linkedin.com/in/alessandrakrick",
     behance: "https://www.behance.net/alessandrakrick",
+    github: "https://github.com/alekrick/",
     email: "akrick.business@gmail.com",
     emailBusiness: "akrickbusiness@gmail.com",
   },

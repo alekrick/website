@@ -70,6 +70,30 @@ export const Footer = (): JSX.Element => {
                 />
               </a>
               <a
+                href={URLS.social.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-transform hover:scale-110 duration-300"
+                data-testid="footer-social-github"
+              >
+                {/* Light mode GitHub icon */}
+                <Image
+                  src="/images/image51.png"
+                  alt="GitHub"
+                  width={40}
+                  height={40}
+                  className="shadow-sm hover:shadow-md transition-shadow duration-300 dark:hidden"
+                />
+                {/* Dark mode GitHub icon */}
+                <Image
+                  src="/images/image52.png"
+                  alt="GitHub"
+                  width={40}
+                  height={40}
+                  className="shadow-sm hover:shadow-md transition-shadow duration-300 hidden dark:block"
+                />
+              </a>
+              <a
                 href={getEmailLink(URLS.social.email)}
                 className="transition-transform hover:scale-110 duration-300"
                 data-testid="footer-social-email"
