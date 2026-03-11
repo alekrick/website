@@ -37,3 +37,6 @@ next-env.d.ts
 # repo hygiene
 CODE_REVIEW.md
 
+# legacy asset mapping (no longer used)
+image-mapping.json
+
