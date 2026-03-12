@@ -6,42 +6,42 @@ import { URLS, getEmailLink } from "@/constants/urls";
 
 export const Footer = (): JSX.Element => {
   return (
-    <footer className="bg-gray-50 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 py-8" data-testid="footer">
+    <footer className="bg-gray-50 dark:bg-[#0f0f0f] border-t border-gray-200 dark:border-[#2a2a2a] py-8" data-testid="footer">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-8">
           {/* Navigation Links */}
           <div className="flex flex-wrap justify-center gap-6 text-sm" data-testid="footer-nav">
             <Link
               href={URLS.routes.homepage}
-              className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
+              className="text-gray-700 dark:text-[#d4d4d4] hover:text-blue-600 dark:hover:text-[#3b6fe8] transition-colors duration-200"
               data-testid="footer-link-home"
             >
               Home
             </Link>
             <Link
               href={URLS.routes.about}
-              className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
+              className="text-gray-700 dark:text-[#d4d4d4] hover:text-blue-600 dark:hover:text-[#3b6fe8] transition-colors duration-200"
               data-testid="footer-link-about"
             >
               About
             </Link>
             <Link
               href={URLS.routes.productManagement}
-              className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
+              className="text-gray-700 dark:text-[#d4d4d4] hover:text-blue-600 dark:hover:text-[#3b6fe8] transition-colors duration-200"
               data-testid="footer-link-product-management"
             >
               Product Management
             </Link>
             <Link
               href={URLS.routes.graphicDesign}
-              className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
+              className="text-gray-700 dark:text-[#d4d4d4] hover:text-blue-600 dark:hover:text-[#3b6fe8] transition-colors duration-200"
               data-testid="footer-link-graphic-design"
             >
               Graphic Design
             </Link>
             <Link
               href={URLS.routes.sushitime}
-              className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
+              className="text-gray-700 dark:text-[#d4d4d4] hover:text-blue-600 dark:hover:text-[#3b6fe8] transition-colors duration-200"
               data-testid="footer-link-sushitime"
             >
               SushiTime
@@ -50,7 +50,7 @@ export const Footer = (): JSX.Element => {
           
           {/* Copyright and Social Links */}
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div className="text-sm text-gray-600 dark:text-gray-300" data-testid="footer-copyright">
+            <div className="text-sm text-gray-600 dark:text-[#888888]" data-testid="footer-copyright">
               © {new Date().getFullYear()} Alessandra Krick. All rights reserved.
             </div>
             <div className="flex items-center gap-6" data-testid="footer-social">

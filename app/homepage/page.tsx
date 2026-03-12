@@ -8,6 +8,7 @@ import { Header } from "@/components/shared/Header";
 import { Footer } from "@/components/shared/Footer";
 import { Section } from "@/components/shared/Section";
 import { useScrollHeader } from "@/hooks/useScrollHeader";
+import { Button } from "@/components/shared/Button";
 
 // Text scroll component for design phases (currently not used)
 // const TextScroll = ({ finalText, phases, duration = 2 }: { finalText: string; phases: string[]; duration?: number }) => {
@@ -66,11 +67,11 @@ const Home = (): JSX.Element => {
   const isScrollingDown = useScrollHeader();
 
   return (
-    <main className="min-h-screen bg-white dark:bg-gray-900 scroll-smooth overflow-x-hidden" data-testid="homepage">
+    <main className="min-h-screen bg-white dark:bg-[#0f0f0f] scroll-smooth overflow-x-hidden" data-testid="homepage">
       <Header isScrollingDown={isScrollingDown} currentPage="homepage" />
 
       {/* Hero Section */}
-      <Section className="my-24 md:my-32 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900">
+      <Section className="my-24 md:my-32 px-4 sm:px-6 lg:px-8 bg-white dark:bg-[#0f0f0f]">
         <div className="max-w-4xl mx-auto">
           <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
             {/* Text Content */}
@@ -140,7 +141,7 @@ const Home = (): JSX.Element => {
       </Section>
 
       {/* Highlight Cards */}
-      <Section className="my-24 md:my-32 px-4 sm:px-6 lg:px-8 bg-gray-50/50 dark:bg-gray-800/50 py-16">
+      <Section className="my-24 md:my-32 px-4 sm:px-6 lg:px-8 bg-gray-50/50 dark:bg-[#161616] py-16">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Scale & Platforms */}
@@ -231,7 +232,7 @@ const Home = (): JSX.Element => {
       </Section>
 
       {/* Projects Section */}
-      <Section className="my-24 md:my-32 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900">
+      <Section className="my-24 md:my-32 px-4 sm:px-6 lg:px-8 bg-white dark:bg-[#0f0f0f]">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-12 text-center">
             Projects
@@ -369,26 +370,26 @@ const Home = (): JSX.Element => {
       </Section>
 
       {/* Call-to-Action Section */}
-      <Section className="my-24 md:my-32 px-4 sm:px-6 lg:px-8 bg-gray-50/50 dark:bg-gray-800/50 py-16">
+      <Section className="my-24 md:my-32 px-4 sm:px-6 lg:px-8 bg-gray-50/50 dark:bg-[#161616] py-16">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-normal text-gray-900 dark:text-white mb-8">
             Let&apos;s build something users love.
           </h2>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <a
+            <Button
+              variant="primary"
+              size="md"
               href={getEmailLink(URLS.social.emailBusiness)}
-              className="inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-200 text-sm md:text-base"
             >
               📧 Email Me
-            </a>
-            <a
+            </Button>
+            <Button
+              variant="secondary"
+              size="md"
               href={URLS.social.linkedinShort}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-6 py-3 bg-white text-blue-600 font-semibold rounded-lg border-2 border-blue-600 hover:bg-blue-50 transition-colors duration-200 text-sm md:text-base"
             >
               🔗 Connect on LinkedIn
-            </a>
+            </Button>
           </div>
         </div>
       </Section>

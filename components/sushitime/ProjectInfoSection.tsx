@@ -2,6 +2,7 @@
 
 import { Section } from "@/components/shared/Section";
 import { URLS } from "@/constants/urls";
+import { Button } from "@/components/shared/Button";
 
 export const ProjectInfoSection = (): JSX.Element => {
   return (
@@ -21,15 +22,15 @@ export const ProjectInfoSection = (): JSX.Element => {
             <p className="text-base md:text-lg text-gray-700 dark:text-gray-300">June - Oct 2022</p>
           </div>
           <div>
-            <a
+            <Button
+              variant="ghost"
+              size="sm"
               href={URLS.sushitime.processDeck}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block px-4 py-2 text-sm bg-white dark:bg-gray-800 text-gray-900 dark:text-white font-semibold rounded-lg border-2 border-gray-300 dark:border-gray-600 hover:border-gray-400 dark:hover:border-gray-500 transition-colors duration-200"
+              className="text-sm"
               data-testid="process-deck-link"
             >
               PROCESS DECK →
-            </a>
+            </Button>
           </div>
         </div>
       </div>

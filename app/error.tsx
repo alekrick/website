@@ -1,6 +1,7 @@
-'use client';
+"use client";
 
-import { useEffect } from 'react';
+import { useEffect } from "react";
+import { Button } from "@/components/shared/Button";
 
 type ErrorProps = {
   error: Error & { digest?: string };
@@ -15,15 +16,13 @@ const Error = ({ error, reset }: ErrorProps): JSX.Element => {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center">
       <h2 className="text-2xl font-bold mb-4">Something went wrong!</h2>
-      <button
-        onClick={reset}
-        className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
-      >
+      <Button variant="primary" size="sm" onClick={reset}>
         Try again
-      </button>
+      </Button>
     </div>
   );
 };
 
 export default Error;
+
 
