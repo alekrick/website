@@ -16,7 +16,7 @@ export const KickoffSection = (): JSX.Element => {
             <p className="text-gray-700 dark:text-gray-300 mb-6 text-base md:text-lg leading-relaxed">
               For initiating the project, I have started with an UX Research to validate the Project&apos;s goals and discover other pains and needs users might have to enrich the product.
             </p>
-            <p className="text-gray-700 mb-6 text-base md:text-lg leading-relaxed">
+            <p className="text-gray-700 dark:text-gray-300 mb-6 text-base md:text-lg leading-relaxed">
               After the research, personas were drawn. To start the ideation process, I runned a <em>competitive analysis</em> with direct and indirect competitors.
             </p>
             <ul className="space-y-3 text-gray-700 dark:text-gray-300 text-base md:text-lg leading-relaxed list-disc list-inside ml-4">
@@ -26,7 +26,7 @@ export const KickoffSection = (): JSX.Element => {
                   href={URLS.sushitime.competitiveAnalysis}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 underline"
+                  className="text-gray-900 dark:text-white hover:text-gray-700 dark:hover:text-gray-200 underline underline-offset-2"
                   data-testid="competitive-analysis-link"
                 >
                   Competitive analysis →

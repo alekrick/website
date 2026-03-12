@@ -1,13 +1,14 @@
 "use client";
 
 import { PageSection } from "./PageSection";
+import { CountUp } from "./CountUp";
 
 const IMPACT_ITEMS = [
-  { label: "Partner integrations delivered", value: "15+" },
-  { label: "Engineering team retention rate", value: "88%" },
-  { label: "App stores shipped simultaneously", value: "5" },
-  { label: "Reduction in dev iteration cycles", value: "46%" },
-];
+  { label: "Partner integrations delivered", end: 15, suffix: "+", id: "impact-integrations" },
+  { label: "Engineering team retention rate", end: 88, suffix: "%", id: "impact-retention" },
+  { label: "App stores shipped simultaneously", end: 5, suffix: "", id: "impact-stores" },
+  { label: "Reduction in dev iteration cycles", end: 46, suffix: "%", id: "impact-reduction" },
+] as const;
 
 export const ImpactNumbersSection = (): JSX.Element => (
   <PageSection className="py-16 px-4 sm:px-6 lg:px-8 bg-white dark:bg-[#111111]">
@@ -24,7 +25,9 @@ export const ImpactNumbersSection = (): JSX.Element => (
                 index === 3 ? "border-t border-gray-200/80 dark:border-white/10 md:border-t-0 border-l border-gray-200/80 dark:border-white/10" : "",
               ].join(" ")}
             >
-              <div className="text-3xl md:text-4xl font-extrabold text-blue-600 dark:text-[#3b6fe8] tabular-nums">{item.value}</div>
+              <div className="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white tabular-nums">
+                <CountUp end={item.end} suffix={item.suffix} id={item.id} duration={1.2} />
+              </div>
               <p className="mt-2 text-xs md:text-sm text-gray-600 dark:text-white/70 uppercase tracking-wide">{item.label}</p>
             </div>
           ))}

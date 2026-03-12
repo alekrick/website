@@ -13,35 +13,35 @@ export const Footer = (): JSX.Element => {
           <div className="flex flex-wrap justify-center gap-6 text-sm" data-testid="footer-nav">
             <Link
               href={URLS.routes.homepage}
-              className="text-gray-700 dark:text-[#d4d4d4] hover:text-blue-600 dark:hover:text-[#3b6fe8] transition-colors duration-200"
+              className="text-gray-700 dark:text-[#d4d4d4] hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
               data-testid="footer-link-home"
             >
               Home
             </Link>
             <Link
               href={URLS.routes.about}
-              className="text-gray-700 dark:text-[#d4d4d4] hover:text-blue-600 dark:hover:text-[#3b6fe8] transition-colors duration-200"
+              className="text-gray-700 dark:text-[#d4d4d4] hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
               data-testid="footer-link-about"
             >
               About
             </Link>
             <Link
               href={URLS.routes.productManagement}
-              className="text-gray-700 dark:text-[#d4d4d4] hover:text-blue-600 dark:hover:text-[#3b6fe8] transition-colors duration-200"
+              className="text-gray-700 dark:text-[#d4d4d4] hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
               data-testid="footer-link-product-management"
             >
               Product Management
             </Link>
             <Link
               href={URLS.routes.graphicDesign}
-              className="text-gray-700 dark:text-[#d4d4d4] hover:text-blue-600 dark:hover:text-[#3b6fe8] transition-colors duration-200"
+              className="text-gray-700 dark:text-[#d4d4d4] hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
               data-testid="footer-link-graphic-design"
             >
               Graphic Design
             </Link>
             <Link
               href={URLS.routes.sushitime}
-              className="text-gray-700 dark:text-[#d4d4d4] hover:text-blue-600 dark:hover:text-[#3b6fe8] transition-colors duration-200"
+              className="text-gray-700 dark:text-[#d4d4d4] hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
               data-testid="footer-link-sushitime"
             >
               SushiTime

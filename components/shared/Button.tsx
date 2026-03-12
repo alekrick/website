@@ -29,13 +29,13 @@ const sizeClasses: Record<ButtonSize, string> = {
 
 const variantClasses: Record<ButtonVariant, string> = {
   primary:
-    "bg-blue-600 text-white hover:bg-blue-700 dark:hover:bg-[#3b6fe8] hover:shadow-[0_10px_30px_-16px_rgba(37,99,235,0.9)]",
+    "bg-gray-900 text-white hover:bg-gray-800 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100 hover:shadow-[0_10px_30px_-16px_rgba(0,0,0,0.25)] dark:hover:shadow-[0_10px_30px_-16px_rgba(255,255,255,0.15)]",
   secondary:
-    "bg-white dark:bg-transparent text-blue-600 dark:text-[#3b6fe8] border-2 border-blue-600 dark:border-[#3b6fe8] hover:bg-blue-50 dark:hover:bg-white/5",
+    "bg-white dark:bg-transparent text-gray-900 dark:text-white border-2 border-gray-700 dark:border-gray-400 hover:bg-gray-100 dark:hover:bg-white/5",
   ghost:
     "bg-transparent text-gray-900 dark:text-white border border-gray-300 dark:border-[#2a2a2a] hover:bg-gray-50 dark:hover:bg-white/5",
   icon:
-    "p-2 rounded-xl text-gray-700 dark:text-[#d4d4d4] hover:text-blue-600 dark:hover:text-[#3b6fe8] hover:bg-gray-100 dark:hover:bg-[#1a1a1a]",
+    "p-2 rounded-xl text-gray-700 dark:text-[#d4d4d4] hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-[#1a1a1a]",
 };
 
 const baseClasses =

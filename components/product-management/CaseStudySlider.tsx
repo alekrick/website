@@ -79,7 +79,7 @@ export const CaseStudySlider = ({
               type="button"
               onClick={() => goTo(i)}
               className={`h-1.5 w-1.5 rounded-full transition-colors duration-200 ${
-                i === index ? "bg-blue-600 dark:bg-blue-400" : "bg-gray-300 dark:bg-gray-600 hover:bg-gray-400 dark:hover:bg-gray-500"
+                i === index ? "bg-gray-700 dark:bg-gray-400" : "bg-gray-300 dark:bg-gray-600 hover:bg-gray-400 dark:hover:bg-gray-500"
               }`}
               aria-label={`Go to image ${i + 1}`}
             />

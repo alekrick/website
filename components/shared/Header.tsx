@@ -38,7 +38,7 @@ export const Header = ({ isScrollingDown = false, currentPage }: HeaderProps): J
           <div className="hidden md:flex items-center gap-6" data-testid="desktop-nav">
             <Link
               href={URLS.routes.homepage}
-              className={`text-sm text-gray-700 dark:text-[#d4d4d4] hover:text-blue-600 dark:hover:text-[#3b6fe8] transition-colors duration-200 ${
+              className={`text-sm text-gray-700 dark:text-[#d4d4d4] hover:text-gray-900 dark:hover:text-white transition-colors duration-200 ${
                 currentPage === "homepage" ? "font-medium" : ""
               }`}
               data-testid="nav-home"
@@ -47,7 +47,7 @@ export const Header = ({ isScrollingDown = false, currentPage }: HeaderProps): J
             </Link>
             <Link
               href={URLS.routes.about}
-              className={`text-sm text-gray-700 dark:text-[#d4d4d4] hover:text-blue-600 dark:hover:text-[#3b6fe8] transition-colors duration-200 ${
+              className={`text-sm text-gray-700 dark:text-[#d4d4d4] hover:text-gray-900 dark:hover:text-white transition-colors duration-200 ${
                 currentPage === "about" ? "font-medium" : ""
               }`}
               data-testid="nav-about"
@@ -56,7 +56,7 @@ export const Header = ({ isScrollingDown = false, currentPage }: HeaderProps): J
             </Link>
             <Link
               href={URLS.routes.productManagement}
-              className={`text-sm text-gray-700 dark:text-[#d4d4d4] hover:text-blue-600 dark:hover:text-[#3b6fe8] transition-colors duration-200 ${
+              className={`text-sm text-gray-700 dark:text-[#d4d4d4] hover:text-gray-900 dark:hover:text-white transition-colors duration-200 ${
                 currentPage === "product-management" ? "font-medium" : ""
               }`}
               data-testid="nav-product-management"
@@ -65,7 +65,7 @@ export const Header = ({ isScrollingDown = false, currentPage }: HeaderProps): J
             </Link>
             <Link
               href={URLS.routes.graphicDesign}
-              className={`text-sm text-gray-700 dark:text-[#d4d4d4] hover:text-blue-600 dark:hover:text-[#3b6fe8] transition-colors duration-200 ${
+              className={`text-sm text-gray-700 dark:text-[#d4d4d4] hover:text-gray-900 dark:hover:text-white transition-colors duration-200 ${
                 currentPage === "graphic-design" ? "font-medium" : ""
               }`}
               data-testid="nav-graphic-design"
@@ -74,7 +74,7 @@ export const Header = ({ isScrollingDown = false, currentPage }: HeaderProps): J
             </Link>
             <Link
               href={URLS.routes.sushitime}
-              className={`text-sm text-gray-700 dark:text-[#d4d4d4] hover:text-blue-600 dark:hover:text-[#3b6fe8] transition-colors duration-200 ${
+              className={`text-sm text-gray-700 dark:text-[#d4d4d4] hover:text-gray-900 dark:hover:text-white transition-colors duration-200 ${
                 currentPage === "sushitime" ? "font-medium" : ""
               }`}
               data-testid="nav-sushitime"
@@ -85,7 +85,7 @@ export const Header = ({ isScrollingDown = false, currentPage }: HeaderProps): J
               href={URLS.community}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm text-gray-700 dark:text-[#d4d4d4] hover:text-blue-600 dark:hover:text-[#3b6fe8] transition-colors duration-200"
+              className="text-sm text-gray-700 dark:text-[#d4d4d4] hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
               data-testid="nav-community"
             >
               Community
@@ -127,35 +127,35 @@ export const Header = ({ isScrollingDown = false, currentPage }: HeaderProps): J
             <Link
               href={URLS.routes.homepage}
               onClick={() => setIsMobileMenuOpen(false)}
-              className="text-sm text-gray-700 dark:text-[#d4d4d4] hover:text-blue-600 dark:hover:text-[#3b6fe8] transition-colors duration-200 py-2"
+              className="text-sm text-gray-700 dark:text-[#d4d4d4] hover:text-gray-900 dark:hover:text-white transition-colors duration-200 py-2"
             >
               Home
             </Link>
             <Link
               href={URLS.routes.about}
               onClick={() => setIsMobileMenuOpen(false)}
-              className="text-sm text-gray-700 dark:text-[#d4d4d4] hover:text-blue-600 dark:hover:text-[#3b6fe8] transition-colors duration-200 py-2"
+              className="text-sm text-gray-700 dark:text-[#d4d4d4] hover:text-gray-900 dark:hover:text-white transition-colors duration-200 py-2"
             >
               About
             </Link>
             <Link
               href={URLS.routes.productManagement}
               onClick={() => setIsMobileMenuOpen(false)}
-              className="text-sm text-gray-700 dark:text-[#d4d4d4] hover:text-blue-600 dark:hover:text-[#3b6fe8] transition-colors duration-200 py-2"
+              className="text-sm text-gray-700 dark:text-[#d4d4d4] hover:text-gray-900 dark:hover:text-white transition-colors duration-200 py-2"
             >
               Product Management
             </Link>
             <Link
               href={URLS.routes.graphicDesign}
               onClick={() => setIsMobileMenuOpen(false)}
-              className="text-sm text-gray-700 dark:text-[#d4d4d4] hover:text-blue-600 dark:hover:text-[#3b6fe8] transition-colors duration-200 py-2"
+              className="text-sm text-gray-700 dark:text-[#d4d4d4] hover:text-gray-900 dark:hover:text-white transition-colors duration-200 py-2"
             >
               Graphic Design
             </Link>
             <Link
               href={URLS.routes.sushitime}
               onClick={() => setIsMobileMenuOpen(false)}
-              className="text-sm text-gray-700 dark:text-[#d4d4d4] hover:text-blue-600 dark:hover:text-[#3b6fe8] transition-colors duration-200 py-2"
+              className="text-sm text-gray-700 dark:text-[#d4d4d4] hover:text-gray-900 dark:hover:text-white transition-colors duration-200 py-2"
             >
               SushiTime
             </Link>
@@ -164,7 +164,7 @@ export const Header = ({ isScrollingDown = false, currentPage }: HeaderProps): J
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="text-sm text-gray-700 dark:text-[#d4d4d4] hover:text-blue-600 dark:hover:text-[#3b6fe8] transition-colors duration-200 py-2"
+              className="text-sm text-gray-700 dark:text-[#d4d4d4] hover:text-gray-900 dark:hover:text-white transition-colors duration-200 py-2"
             >
               Community
             </a>

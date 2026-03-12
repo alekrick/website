@@ -21,7 +21,7 @@ export const WireflowSection = (): JSX.Element => {
             href={URLS.sushitime.figmaPrototype}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 underline"
+            className="text-gray-900 dark:text-white hover:text-gray-700 dark:hover:text-gray-200 underline underline-offset-2"
             data-testid="figma-prototype-link"
           >
             Check the High-Fidelity Prototype in Figma →

@@ -9,6 +9,7 @@ import { Footer } from "@/components/shared/Footer";
 import { Section } from "@/components/shared/Section";
 import { useScrollHeader } from "@/hooks/useScrollHeader";
 import { Button } from "@/components/shared/Button";
+import { CountUp } from "@/components/product-management/CountUp";
 
 // Text scroll component for design phases (currently not used)
 // const TextScroll = ({ finalText, phases, duration = 2 }: { finalText: string; phases: string[]; duration?: number }) => {
@@ -71,8 +72,13 @@ const Home = (): JSX.Element => {
       <Header isScrollingDown={isScrollingDown} currentPage="homepage" />
 
       {/* Hero Section */}
-      <Section className="my-24 md:my-32 px-4 sm:px-6 lg:px-8 bg-white dark:bg-[#0f0f0f]">
-        <div className="max-w-4xl mx-auto">
+      <Section className="relative my-24 md:my-32 px-4 sm:px-6 lg:px-8 bg-white dark:bg-[#0f0f0f] overflow-hidden">
+        {/* Subtle animated radial glow — top-right */}
+        <div
+          className="pointer-events-none absolute top-0 right-0 h-[480px] w-[480px] md:h-[520px] md:w-[520px] rounded-full bg-[radial-gradient(circle,rgba(99,102,241,0.12),rgba(59,111,232,0.06)_40%,transparent_70%)] animate-pulse-glow"
+          aria-hidden
+        />
+        <div className="relative max-w-4xl mx-auto">
           <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
             {/* Text Content */}
             <div className="flex-1 text-center md:text-left order-1">
@@ -96,19 +102,44 @@ const Home = (): JSX.Element => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-base md:text-lg text-gray-700 dark:text-gray-300 mb-2"
+                className="font-bold text-gray-900 dark:text-white text-3xl md:text-4xl lg:text-5xl mb-2 tracking-tight"
               >
-                A <span className="font-semibold text-blue-600">Senior Product Manager</span> specialized in mobile and digital products.
+                I build products from{" "}
+                <span className="relative inline-block">
+                  0 to 1.
+                  <span className="absolute bottom-0 left-0 h-0.5 w-0 bg-gray-900 dark:bg-white origin-left animate-underline-draw" />
+                </span>
+              </motion.p>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.25 }}
+                className="text-base text-gray-600 dark:text-gray-300 mb-4"
+              >
+                Three continents. Gaming, food-tech, marketplaces. 10M+ users on one end, zero on the other.
               </motion.p>
 
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="text-sm md:text-base text-gray-600 dark:text-gray-200"
+                className="text-sm md:text-base text-gray-600 dark:text-gray-200 mb-6"
               >
                 📍 Based in Dubai
               </motion.p>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+                className="flex flex-row gap-4 justify-center md:justify-start"
+              >
+                <Button variant="primary" size="md" href={URLS.routes.productManagement} internal>
+                  View My Work
+                </Button>
+                <Button variant="secondary" size="md" href={getEmailLink(URLS.social.emailBusiness)}>
+                  Email Me
+                </Button>
+              </motion.div>
             </div>
             
             {/* Profile Image */}
@@ -140,92 +171,57 @@ const Home = (): JSX.Element => {
         </div>
       </Section>
 
-      {/* Highlight Cards */}
-      <Section className="my-24 md:my-32 px-4 sm:px-6 lg:px-8 bg-gray-50/50 dark:bg-[#161616] py-16">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Scale & Platforms */}
+      {/* Stats strip */}
+      <Section className="my-24 md:my-32 px-0 bg-gray-50/50 dark:bg-[#161616] border-y border-gray-200 dark:border-[#2a2a2a] py-12">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-0">
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0 }}
-              className="bg-white dark:bg-gray-800 rounded-xl p-8 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-shadow duration-300"
+              transition={{ duration: 0.5 }}
+              className="px-6 py-4 text-center md:border-r border-gray-200 dark:border-[#2a2a2a]"
             >
-              <div className="text-4xl mb-4">🌐</div>
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Scale & Platforms</h3>
-              <div className="text-gray-700 dark:text-gray-300 text-sm md:text-base leading-relaxed space-y-3">
-                <p>
-                  Multi-platform product delivery across marketplaces, ecommerce, and entertainment.
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  <span className="inline-block px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-xs md:text-sm font-medium">
-                    Mobile, web & TV
-                  </span>
-                  <span className="inline-block px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-xs md:text-sm font-medium">
-                    Google Play, Apple App Store
-                  </span>
-                  <span className="inline-block px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-xs md:text-sm font-medium">
-                    10M+ users
-                  </span>
-                </div>
-              </div>
+              <span className="font-bold text-gray-900 dark:text-white text-3xl md:text-4xl tabular-nums">
+                <CountUp end={6} id="home-years" duration={1.2} />
+              </span>
+              <p className="mt-1 text-xs text-gray-500 dark:text-[#888888] uppercase tracking-[0.2em]">Years of experience</p>
             </motion.div>
-
-            {/* Customer Journey Ownership */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="bg-white dark:bg-gray-800 rounded-xl p-8 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-shadow duration-300"
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="px-6 py-4 text-center md:border-r border-gray-200 dark:border-[#2a2a2a] border-t border-gray-200 dark:border-[#2a2a2a] md:border-t-0"
             >
-              <div className="text-4xl mb-4">🧭</div>
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Customer Journey Ownership</h3>
-              <div className="text-gray-700 dark:text-gray-300 text-sm md:text-base leading-relaxed space-y-3">
-                <p>
-                  End-to-end ownership from problem framing to post-launch optimization.
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  <span className="inline-block px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-xs md:text-sm font-medium">
-                    Engagement
-                  </span>
-                  <span className="inline-block px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-xs md:text-sm font-medium">
-                    Completion
-                  </span>
-                  <span className="inline-block px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-xs md:text-sm font-medium">
-                    Retention-driven
-                  </span>
-                </div>
-              </div>
+              <span className="font-bold text-gray-900 dark:text-white text-3xl md:text-4xl tabular-nums">
+                <CountUp end={10} suffix="M+" id="home-users" duration={1.2} />
+              </span>
+              <p className="mt-1 text-xs text-gray-500 dark:text-[#888888] uppercase tracking-[0.2em]">Users impacted</p>
             </motion.div>
-
-            {/* AI & Data-Driven */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="bg-white dark:bg-gray-800 rounded-xl p-8 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-shadow duration-300"
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="px-6 py-4 text-center md:border-r border-gray-200 dark:border-[#2a2a2a] border-t border-gray-200 dark:border-[#2a2a2a] md:border-t-0"
             >
-              <div className="text-4xl mb-4">🤖</div>
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">AI & Data-Driven</h3>
-              <div className="text-gray-700 dark:text-gray-300 text-sm md:text-base leading-relaxed space-y-3">
-                <p>
-                  AI-powered features and data-led decisions.
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  <span className="inline-block px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-xs md:text-sm font-medium">
-                    Dashboards
-                  </span>
-                  <span className="inline-block px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-xs md:text-sm font-medium">
-                    Experimentation
-                  </span>
-                  <span className="inline-block px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-xs md:text-sm font-medium">
-                    Real-world impact
-                  </span>
-                </div>
-              </div>
+              <span className="font-bold text-gray-900 dark:text-white text-3xl md:text-4xl tabular-nums">
+                <CountUp end={12} suffix="+" id="home-products" duration={1.2} />
+              </span>
+              <p className="mt-1 text-xs text-gray-500 dark:text-[#888888] uppercase tracking-[0.2em]">Products shipped</p>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="px-6 py-4 text-center border-t border-gray-200 dark:border-[#2a2a2a] md:border-t-0"
+            >
+              <span className="font-bold text-gray-900 dark:text-white text-3xl md:text-4xl tabular-nums">
+                <CountUp end={3} id="home-continents" duration={1.2} />
+              </span>
+              <p className="mt-1 text-xs text-gray-500 dark:text-[#888888] uppercase tracking-[0.2em]">Continents</p>
             </motion.div>
           </div>
         </div>
@@ -234,43 +230,52 @@ const Home = (): JSX.Element => {
       {/* Projects Section */}
       <Section className="my-24 md:my-32 px-4 sm:px-6 lg:px-8 bg-white dark:bg-[#0f0f0f]">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-12 text-center">
-            Projects
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Product Management */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="group"
-            >
-              <Link href={URLS.routes.productManagement} className="block">
-                <div className="relative w-full h-64 rounded-lg overflow-hidden shadow-lg bg-gray-100 mb-4">
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true, margin: "-50px" }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
-                    className="w-full h-full"
-                  >
-                    <Image
-                      src="/images/image3.png"
-                      alt="Product Management"
-                      width={5000}
-                      height={5000}
-                      className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
-                    />
-                  </motion.div>
-                </div>
-                <p className="text-center text-lg font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                  Product Management →
-                </p>
-              </Link>
-            </motion.div>
+          {/* Featured: Product Management — full width */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="group mb-8"
+          >
+            <Link href={URLS.routes.productManagement} className="block">
+              <div className="relative w-full h-[380px] rounded-xl overflow-hidden shadow-sm bg-gray-100 mb-4 group-hover:shadow-md transition-shadow duration-300">
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  className="w-full h-full"
+                >
+                  <Image
+                    src="/images/image3.png"
+                    alt="Product Management"
+                    width={5000}
+                    height={5000}
+                    className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
+                  />
+                </motion.div>
+                {/* Bottom gradient overlay — deepens on hover */}
+                <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/40 to-transparent" aria-hidden />
+                <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/55 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" aria-hidden />
+                {/* FEATURED WORK badge */}
+                <span className="absolute top-4 left-4 bg-gray-900 dark:bg-white dark:text-gray-900 text-white text-xs font-semibold px-3 py-1 rounded-full">
+                  FEATURED WORK
+                </span>
+              </div>
+              <p className="uppercase tracking-[0.2em] text-xs text-gray-500 dark:text-[#888888] mb-2">Featured work</p>
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Product Management</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-300 mb-3">
+                6 years of 0-to-1 builds across mobile, gaming, food-tech and marketplace. Real teams, real outcomes.
+              </p>
+              <span className="inline-block text-gray-900 dark:text-white text-sm font-medium group-hover:underline mb-12">
+                View case studies →
+              </span>
+            </Link>
+          </motion.div>
 
-            {/* SushiTime */}
+          {/* Secondary cards: SushiTime + Community */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -278,8 +283,8 @@ const Home = (): JSX.Element => {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="group"
             >
-              <Link href={URLS.routes.sushitime} className="block">
-                <div className="relative w-full h-64 rounded-lg overflow-hidden shadow-lg bg-gray-100 mb-4">
+              <Link href={URLS.routes.sushitime} className="block rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
+                <div className="relative w-full h-[240px] rounded-xl overflow-hidden bg-gray-100 mb-4">
                   <motion.div
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
@@ -295,14 +300,15 @@ const Home = (): JSX.Element => {
                       className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
                     />
                   </motion.div>
+                  <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[rgba(0,0,0,0.25)] to-transparent" aria-hidden />
                 </div>
-                <p className="text-center text-lg font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                  SushiTime →
-                </p>
+                <div className="border-l-2 border-gray-700 dark:border-gray-400 pl-4 py-4 pr-4">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-1 tracking-tight">SushiTime</h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-300">Mobile app UX case study</p>
+                </div>
               </Link>
             </motion.div>
 
-            {/* Community */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -310,8 +316,8 @@ const Home = (): JSX.Element => {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="group"
             >
-              <a href={URLS.community} target="_blank" rel="noopener noreferrer" className="block">
-                <div className="relative w-full h-64 rounded-lg overflow-hidden shadow-lg bg-gray-100 mb-4">
+              <a href={URLS.community} target="_blank" rel="noopener noreferrer" className="block rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
+                <div className="relative w-full h-[240px] rounded-xl overflow-hidden bg-gray-100 mb-4">
                   <motion.div
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
@@ -327,52 +333,34 @@ const Home = (): JSX.Element => {
                       className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
                     />
                   </motion.div>
+                  <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[rgba(0,0,0,0.25)] to-transparent" aria-hidden />
                 </div>
-                <p className="text-center text-lg font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                  Community →
-                </p>
-              </a>
-            </motion.div>
-
-            {/* Graphic Design */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="group"
-            >
-              <a href={URLS.graphicDesignPortfolio} target="_blank" rel="noopener noreferrer" className="block">
-                <div className="relative w-full h-64 rounded-lg overflow-hidden shadow-lg bg-gray-100 mb-4">
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true, margin: "-50px" }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
-                    className="w-full h-full"
-                  >
-                    <Image
-                      src="/images/image6.png"
-                      alt="Graphic Design"
-                      width={5000}
-                      height={5000}
-                      className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
-                    />
-                  </motion.div>
+                <div className="border-l-2 border-gray-700 dark:border-gray-400 pl-4 py-4 pr-4">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-1 tracking-tight">Community</h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-300">Responsive website UX case study</p>
                 </div>
-                <p className="text-center text-lg font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                  Graphic Design Work (Logos) →
-                </p>
               </a>
             </motion.div>
           </div>
+
+          <p className="text-center text-sm text-gray-500 dark:text-[#888888]">
+            Also:{" "}
+            <a
+              href={URLS.graphicDesignPortfolio}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-700 dark:text-gray-300 underline hover:text-gray-900 dark:hover:text-white"
+            >
+              Graphic Design Work (Logos) →
+            </a>
+          </p>
         </div>
       </Section>
 
       {/* Call-to-Action Section */}
-      <Section className="my-24 md:my-32 px-4 sm:px-6 lg:px-8 bg-gray-50/50 dark:bg-[#161616] py-16">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-normal text-gray-900 dark:text-white mb-8">
+      <Section className="relative my-24 md:my-32 px-4 sm:px-6 lg:px-8 bg-gray-50/50 dark:bg-[#161616] py-16 overflow-hidden">
+        <div className="relative max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-8 tracking-tight">
             Let&apos;s build something users love.
           </h2>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -381,14 +369,14 @@ const Home = (): JSX.Element => {
               size="md"
               href={getEmailLink(URLS.social.emailBusiness)}
             >
-              📧 Email Me
+              Email Me
             </Button>
             <Button
               variant="secondary"
               size="md"
               href={URLS.social.linkedinShort}
             >
-              🔗 Connect on LinkedIn
+              Connect on LinkedIn
             </Button>
           </div>
         </div>

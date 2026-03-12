@@ -32,7 +32,7 @@ export const HeroSection = (): JSX.Element => (
         <div className="max-w-5xl mx-auto rounded-2xl bg-white dark:bg-[#1a1a1a] text-gray-900 dark:text-white border border-gray-200/80 dark:border-[#2a2a2a] shadow-[0_18px_60px_-30px_rgba(0,0,0,0.35)] overflow-hidden">
           <div className="grid grid-cols-1 sm:grid-cols-3">
             <div className="px-8 py-8 text-center sm:text-left">
-              <div className="text-3xl md:text-4xl font-extrabold text-blue-500 dark:text-[#3b6fe8] tabular-nums">
+              <div className="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white tabular-nums">
                 <CountUp end={6} suffix="" id="hero-years" />
               </div>
               <p className="mt-2 text-xs md:text-sm text-gray-600 dark:text-white/70 uppercase tracking-wide">
@@ -40,7 +40,7 @@ export const HeroSection = (): JSX.Element => (
               </p>
             </div>
             <div className="px-8 py-8 text-center sm:text-left border-t border-gray-200/80 dark:border-white/10 sm:border-t-0 sm:border-l">
-              <div className="text-3xl md:text-4xl font-extrabold text-blue-500 dark:text-[#3b6fe8] tabular-nums">
+              <div className="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white tabular-nums">
                 <CountUp end={10} suffix="M+" id="hero-users" />
               </div>
               <p className="mt-2 text-xs md:text-sm text-gray-600 dark:text-white/70 uppercase tracking-wide">
@@ -48,7 +48,7 @@ export const HeroSection = (): JSX.Element => (
               </p>
             </div>
             <div className="px-8 py-8 text-center sm:text-left border-t border-gray-200/80 dark:border-white/10 sm:border-t-0 sm:border-l">
-              <div className="text-3xl md:text-4xl font-extrabold text-blue-500 dark:text-[#3b6fe8] tabular-nums">
+              <div className="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white tabular-nums">
                 <CountUp end={12} suffix="+" id="hero-products" />
               </div>
               <p className="mt-2 text-xs md:text-sm text-gray-600 dark:text-white/70 uppercase tracking-wide">

@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { motion } from "framer-motion";
 import { URLS, getEmailLink } from "@/constants/urls";
 import { Header } from "@/components/shared/Header";
@@ -79,24 +78,27 @@ const About = (): JSX.Element => {
             </p>
             <p className="text-base md:text-lg indent-8">
               When I&apos;m not designing, you will find me drawing with watercolors (
-              <a
+              <Button
+                variant="ghost"
+                size="sm"
                 href={URLS.social.behance}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 underline italic"
+                className="inline font-normal underline italic p-0 min-w-0 h-auto text-base md:text-lg"
               >
-                you can check them here!
-              </a>
+                check them here
+              </Button>
               ), playing on my ps5, planning my next trip or inventing a new recipe in my kitchen.
             </p>
             <p className="text-base md:text-lg indent-8">
               Want to know more about my Product Manager experience?{" "}
-              <Link
+              <Button
+                variant="ghost"
+                size="sm"
                 href={URLS.routes.productManagement}
-                className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 underline"
+                internal
+                className="inline font-normal underline p-0 min-w-0 h-auto text-base md:text-lg"
               >
-                You can find my Product Manager Portfolio by clicking here
-              </Link>
+                View Product Manager Portfolio
+              </Button>
               .
             </p>
           </div>
