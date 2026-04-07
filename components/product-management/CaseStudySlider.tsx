@@ -26,7 +26,7 @@ export const CaseStudySlider = ({
   return (
     <div className="mt-6 pt-6 border-t border-gray-200/70 dark:border-gray-800">
       <div className="relative">
-        <div className="relative h-96 w-full overflow-hidden rounded-2xl bg-gray-100 dark:bg-gray-900">
+        <div className="relative h-56 sm:h-72 md:h-96 w-full overflow-hidden rounded-2xl bg-gray-100 dark:bg-gray-900">
           {images.map((src, i) => (
             <div
               key={`${src}-${i}`}
@@ -39,7 +39,7 @@ export const CaseStudySlider = ({
                 alt={`${altPrefix} slide ${i + 1}`}
                 fill
                 sizes="(min-width: 1024px) 640px, 100vw"
-                className="h-full w-full object-cover"
+                className="h-full w-full object-contain md:object-cover"
               />
             </div>
           ))}
