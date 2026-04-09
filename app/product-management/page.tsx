@@ -9,6 +9,7 @@ const HeroSection = dynamic(() => import("@/components/product-management/HeroSe
 const CaseStudiesSection = dynamic(() => import("@/components/product-management/CaseStudiesSection").then((m) => ({ default: m.CaseStudiesSection })), { ssr: false });
 const BehindTheWorkSection = dynamic(() => import("@/components/product-management/BehindTheWorkSection").then((m) => ({ default: m.BehindTheWorkSection })), { ssr: false });
 const SkillsSection = dynamic(() => import("@/components/product-management/SkillsSection").then((m) => ({ default: m.SkillsSection })), { ssr: false });
+const CertificatesSection = dynamic(() => import("@/components/product-management/CertificatesSection").then((m) => ({ default: m.CertificatesSection })), { ssr: false });
 const ImpactNumbersSection = dynamic(() => import("@/components/product-management/ImpactNumbersSection").then((m) => ({ default: m.ImpactNumbersSection })), { ssr: false });
 const CtaSection = dynamic(() => import("@/components/product-management/CtaSection").then((m) => ({ default: m.CtaSection })), { ssr: false });
 
@@ -26,6 +27,7 @@ const ProductManagement = (): JSX.Element => {
       <CaseStudiesSection />
       <BehindTheWorkSection />
       <SkillsSection />
+      <CertificatesSection />
       <ImpactNumbersSection />
       <CtaSection />
 

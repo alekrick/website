@@ -39,7 +39,7 @@ export const CaseStudiesSection = (): JSX.Element => (
                     Kidjo had TV and Stories products with small games embedded in it. Through data, our users spent a considerable amount of time on the games. Brief: build a multi-game platform for kids, across iOS, Android, Samsung and Web.
                   </p>
                 </div>
-                <details className="py-4">
+                <details className="py-4 sm:hidden">
                   <summary className="cursor-pointer text-sm font-semibold text-gray-900 dark:text-white">Read more</summary>
                   <div className="pt-4 space-y-6">
                     <div>
@@ -65,6 +65,27 @@ export const CaseStudiesSection = (): JSX.Element => (
                     </div>
                   </div>
                 </details>
+                <div className="hidden sm:block py-6">
+                  <p className="uppercase text-xs font-semibold text-gray-500 dark:text-[#888888] mb-2">What I did</p>
+                  <p className="text-sm md:text-base text-gray-600 dark:text-[#d4d4d4] leading-relaxed mb-3">
+                    Owned the full product lifecycle end-to-end with a team of 8.
+                  </p>
+                  <ul className="space-y-1.5 text-sm md:text-base text-gray-600 dark:text-[#d4d4d4] leading-relaxed">
+                    {["Roadmap definition and prioritization", "QA scenarios across four platforms", "App store submissions (Apple, Google, Samsung, Huawei, Amazon)", "Cross-platform UX and experience decisions", "Client and stakeholder communication", "Kept timely deliveries and timelines on the other product lines"].map((item) => (
+                      <li key={item} className="flex gap-2">
+                        <span className="text-gray-500 dark:text-gray-300">→</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="hidden sm:block py-6">
+                  <p className="uppercase text-xs font-semibold text-gray-500 dark:text-[#888888] mb-2">Outcome</p>
+                  <p className="inline-flex flex-col gap-1 rounded-xl bg-gray-100 dark:bg-[#1a1a1a] px-4 py-3 text-sm md:text-base font-semibold text-gray-900 dark:text-white">
+                    <span><strong className="font-semibold">100K+</strong> installs within the first year.</span>
+                    <span><strong className="font-semibold">4.2★</strong> sustained rating across all stores.</span>
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -93,7 +114,7 @@ export const CaseStudiesSection = (): JSX.Element => (
                     Dubizzle wanted to enter the short-term rental market as a local OTA. I joined mid-flight and took full ownership of delivery.
                   </p>
                 </div>
-                <details className="py-4">
+                <details className="py-4 sm:hidden">
                   <summary className="cursor-pointer text-sm font-semibold text-gray-900 dark:text-white">Read more</summary>
                   <div className="pt-4 space-y-6">
                     <div>
@@ -119,6 +140,27 @@ export const CaseStudiesSection = (): JSX.Element => (
                     </div>
                   </div>
                 </details>
+                <div className="hidden sm:block py-6">
+                  <p className="uppercase text-xs font-semibold text-gray-500 dark:text-[#888888] mb-2">What I did</p>
+                  <p className="text-sm md:text-base text-gray-600 dark:text-[#d4d4d4] leading-relaxed mb-3">
+                    Drove the go-to-market launch across 6+ internal departments.
+                  </p>
+                  <ul className="space-y-1.5 text-sm md:text-base text-gray-600 dark:text-[#d4d4d4] leading-relaxed">
+                    {["Roadmap, pricing and testing scenarios", "Operational and finance flow design", "Payment gateway integration", "Pre-launch agency onboarding and training", "Data specs for BI dashboard"].map((item) => (
+                      <li key={item} className="flex gap-2">
+                        <span className="text-emerald-700 dark:text-emerald-200">→</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="hidden sm:block py-6">
+                  <p className="uppercase text-xs font-semibold text-gray-500 dark:text-[#888888] mb-2">Outcome</p>
+                  <p className="inline-flex flex-col gap-1 rounded-xl bg-emerald-50 dark:bg-[#1a1a1a] px-4 py-3 text-sm md:text-base font-semibold text-gray-900 dark:text-white">
+                    <span>Full go-to-market launch delivered within <strong className="font-semibold">6 months</strong>.</span>
+                    <span>Agencies live on platform before public launch.</span>
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -144,7 +186,7 @@ export const CaseStudiesSection = (): JSX.Element => (
                     Kidjo&apos;s monolithic Content Management System (CMS) couldn&apos;t scale. With 3M+ monthly active users depending on uninterrupted content delivery, the team needed to migrate to a microservices architecture — without taking the platform offline or causing content unavailability.
                   </p>
                 </div>
-                <details className="py-4">
+                <details className="py-4 sm:hidden">
                   <summary className="cursor-pointer text-sm font-semibold text-gray-900 dark:text-white">Read more</summary>
                   <div className="pt-4 space-y-6">
                     <div>
@@ -176,6 +218,33 @@ export const CaseStudiesSection = (): JSX.Element => (
                     </div>
                   </div>
                 </details>
+                <div className="hidden sm:block py-6">
+                  <p className="uppercase text-xs font-semibold text-gray-500 dark:text-[#888888] mb-2">What I did</p>
+                  <p className="text-sm md:text-base text-gray-600 dark:text-[#d4d4d4] leading-relaxed mb-3">
+                    Owned the full product roadmap for a year-long live migration, from architecture decisions to hands-on data validation.
+                  </p>
+                  <ul className="space-y-1.5 text-sm md:text-base text-gray-600 dark:text-[#d4d4d4] leading-relaxed">
+                    {[
+                      "Translated client needs into technical architecture → \"I struggle organizing folders\" became a parent-child folder structure containing all language variants",
+                      "Sequenced the full migration roadmap: database changes, new table creation, API development, server cutover",
+                      "Wrote SQL queries personally to validate data consistency across every table, folder and language variant",
+                      "Tested APIs end-to-end alongside a single QA engineer throughout the migration",
+                      "Joined pair programming sessions with engineers to troubleshoot issues directly",
+                      "Communicated migration status and risk to the client in business language across 12 months",
+                    ].map((item) => (
+                      <li key={item} className="flex gap-2">
+                        <span className="text-orange-600 dark:text-orange-400">→</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="hidden sm:block py-6">
+                  <p className="uppercase text-xs font-semibold text-gray-500 dark:text-[#888888] mb-2">Outcome</p>
+                  <p className="inline-flex flex-col gap-1 rounded-xl bg-orange-50 dark:bg-[#1a1a1a] px-4 py-3 text-sm md:text-base font-semibold text-gray-900 dark:text-white">
+                    <span>Successfully migrated a live backend serving 3M+ monthly active users with zero content unavailability. Replaced an unscalable monolith with a microservices architecture — enabling faster development and a maintainable codebase for future growth.</span>
+                  </p>
+                </div>
               </div>
             </div>
           </div>
