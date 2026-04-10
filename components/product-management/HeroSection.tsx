@@ -21,9 +21,7 @@ export const HeroSection = (): JSX.Element => (
             I build products from 0 to 1.
           </h1>
           <p className="text-base md:text-lg lg:text-xl text-gray-700 dark:text-[#d4d4d4] max-w-4xl mx-auto">
-            Three continents. Gaming, food-tech, marketplaces.{" "}
-            <span className="font-semibold text-gray-900 dark:text-white">10M+ users</span> on one
-            end, zero on the other.
+            10M+ users platforms · Payments · Mobile · Stakeholder Management · B2B + B2C{" "}
           </p>
         </div>
       </div>
